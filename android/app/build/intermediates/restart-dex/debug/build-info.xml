@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86"
+    api-level="23"
+    density="xxhdpi"
+    format="8"
+    plugin-version="2.2.3"
+    timestamp="166245753752797"
+    token="1040607150810843745"
+    verifier="FULL_BUILD_REQUESTED" >
+
+    <task
+        name="javac"
+        duration="2556" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="1071" />
+    <task
+        name="verifier"
+        duration="69" />
+
+    <artifact
+        location="/Users/Cral-Gates/RNProject/lifeStyle/android/app/build/outputs/apk/app-debug.apk"
+        type="MAIN" />
+
+    <build
+        timestamp="166245753752797"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="/Users/Cral-Gates/RNProject/lifeStyle/android/app/build/outputs/apk/app-debug.apk"
+            type="MAIN" />
+    </build>
+
+</instant-run>

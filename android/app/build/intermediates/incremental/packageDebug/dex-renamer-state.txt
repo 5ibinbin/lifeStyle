@@ -1,0 +1,7 @@
+#Sun Apr 09 11:51:18 CST 2017
+base.0=/Users/Cral-Gates/RNProject/lifeStyle/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_0ef6dc3cd3bd1992261e2ec498e4c7cedc631a58
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/Users/Cral-Gates/RNProject/lifeStyle/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_b5354b69ef0572f3eb8ac9bcd7549c802b304045/classes.dex
+base.1=/Users/Cral-Gates/RNProject/lifeStyle/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_b5354b69ef0572f3eb8ac9bcd7549c802b304045
+file.0=/Users/Cral-Gates/RNProject/lifeStyle/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_0ef6dc3cd3bd1992261e2ec498e4c7cedc631a58/classes.dex
