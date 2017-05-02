@@ -5,6 +5,9 @@
 import React, {Component} from 'react';
 
 class NetUtil extends Component {
+
+
+
     /**
      * post请求
      * url : 请求地址
@@ -28,13 +31,23 @@ class NetUtil extends Component {
             })
             .done();
     }
+
     /**
      * get请求
      *url : 请求地址
      *callback : 回调函数
      */
     static get(url, callback) {
-        fetch(url)
+        var fetchOptions = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-LC-Id':'M401fErHUPYhDKmgp0wjqVRX-gzGzoHsz',
+                'X-LC-Key':'Jqnvt1Lmt34vQh1JDRUpRAqq'
+            }
+        };
+        fetch(url, fetchOptions)
             .then((response) => response.text())
             .then((responseText) => {
                 callback(JSON.parse(responseText));

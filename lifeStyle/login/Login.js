@@ -9,8 +9,14 @@ import {
     Text,
     Image,
     TextInput,
+    ToastAndroid,
     TouchableOpacity
 } from 'react-native';
+
+import Global from '../utils/Global';
+import NetUtil from '../utils/NetUtil';
+import JsonUtil from '../utils/JsonUtil';
+import Util from '../utils/Util';
 
 import LifeStyle from '../App';
 import Register from '../login/Register';
@@ -21,7 +27,9 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: ''
+            username: '',
+            password: '',
+            email: ''
         }
     }
 
@@ -47,7 +55,8 @@ class Login extends Component {
                     autoFocus={true}
                     numberOfLines={1}
                     underlineColorAndroid={'transparent'}
-                    textAlign="center"/>
+                    textAlign="center"
+                    onChangeText={(username) => this.setState({username})}/>
                 <View style={styles.long_line}/>
                 <TextInput
                     style={styles.pwd_input}
@@ -55,8 +64,8 @@ class Login extends Component {
                     numberOfLines={1}
                     secureTextEntry={true}
                     underlineColorAndroid={'transparent'}
-                    textAlign="center"/>
-
+                    textAlign="center"
+                    onChangeText={(password) => this.setState({password})}/>
                 <TouchableOpacity onPress={() => this._login()}>
                     <View style={styles.commit}>
                         <TextButton
@@ -99,9 +108,37 @@ class Login extends Component {
     }
 
     _login = () => {
-        this.props.navigator.push({//还记得navigator作为属性传给了每一个scene吗！对了，就是这样取到他
-            name: 'lifeStyle',
-            component: LifeStyle,//通过push方法将一个component入栈，push方法接收一个route，其中必须包含一个component
+        let navigatorOrigin=this.props.navigator;
+        let username = this.state.username;
+        let password = this.state.password;
+        let url = Global.LOGIN + "username=" + username + "&password=" + password;
+        console.log(url);
+        NetUtil.get(url, function (res) {
+            console.log(res);
+            console.log(res.hasOwnProperty('code'));
+            if (Util.isEmpty(username)) {
+                console.log('请输入用户名');
+                Util.showToast('请输入用户名');
+                return;
+            }
+            if (Util.isEmpty(password)) {
+                console.log('请输入密码');
+                Util.showToast('请输入密码');
+                return;
+            }
+            if (res.hasOwnProperty('code')){
+                if (res.code === '200') {
+                    console.log(res.error);
+                }
+                if (res.code === '210') {
+                    console.log('用户名和密码不匹配');
+                }
+            } else {
+                navigatorOrigin.push({
+                    name: 'lifeStyle',
+                    component: LifeStyle
+                });
+            }
         });
     };
     _register = () => {

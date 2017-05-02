@@ -5,6 +5,7 @@
  */
 
 import React, {Component} from 'react';
+import AV from 'leancloud-storage';
 
 import {
     AppRegistry,
@@ -12,6 +13,8 @@ import {
 } from 'react-native';
 
 import Login from './lifeStyle/login/Login'
+AV.initialize('M401fErHUPYhDKmgp0wjqVRX-gzGzoHsz', 'Jqnvt1Lmt34vQh1JDRUpRAqq');
+
 
 export default class lifeStyle extends Component {
 
