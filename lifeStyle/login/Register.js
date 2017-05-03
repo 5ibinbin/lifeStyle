@@ -12,13 +12,18 @@ import {
     TouchableOpacity
 } from 'react-native';
 import TextButton from "../component/TextButton";
+import Global from '../utils/Global';
+import NetUtil from '../utils/NetUtil';
+import JsonUtil from '../utils/JsonUtil';
+import Util from '../utils/Util';
 
 class Register extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            name: 'zhang'
+            username: '',
+            password: ''
         };
     }
 
@@ -38,20 +43,21 @@ class Register extends Component {
                     autoFocus={true}
                     numberOfLines={1}
                     underlineColorAndroid={'transparent'}
-                    textAlign="left"/>
+                    textAlign="left"
+                    onChangeText={(username) => this.setState({username})}/>
                 <TextInput
                     style={styles.pwd_input}
                     placeholder={'请输入密码'}
                     numberOfLines={1}
                     secureTextEntry={true}
                     underlineColorAndroid={'transparent'}
-                    textAlign="left"/>
-
+                    textAlign="left"
+                    onChangeText={(password) => this.setState({password})}/>
                 <View style={styles.register}>
                     <TouchableOpacity>
                         <TextButton
                             text="注册"
-                            onPress={() => this._goBack()}
+                            onPress={() => this._register()}
                             color={'black'}
                             backgroundColor={'#FFDE00'}/>
                     </TouchableOpacity>
@@ -61,6 +67,20 @@ class Register extends Component {
     }
 
     _register = () => {
+        let username = this.state.username;
+        let password = this.state.password;
+        let formDate = new FormData();
+        let url = Global.REGISTER;
+        formDate.append("username", username);
+        formDate.append("password", password);
+
+        console.log(username);
+        console.log(password);
+        console.log(formDate);
+
+        NetUtil.postJson(url, formDate, function (res) {
+            console.log(res);
+        });
         this._goBack();
     };
     _goBack = () => {
