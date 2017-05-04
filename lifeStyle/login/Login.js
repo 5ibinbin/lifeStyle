@@ -17,6 +17,7 @@ import Global from '../utils/Global';
 import NetUtil from '../utils/NetUtil';
 import JsonUtil from '../utils/JsonUtil';
 import Util from '../utils/Util';
+import StorageUtil from '../utils/StorageUtil';
 
 import LifeStyle from '../App';
 import Register from '../login/Register';
@@ -125,6 +126,9 @@ class Login extends Component {
             if (res.hasOwnProperty('code')){
                 Util.showToast(res.error);
             } else {
+                StorageUtil.save('sessionToken', res.sessionToken, function () {
+                    console.log('成功');
+                });
                 navigatorOrigin.push({
                     name: 'lifeStyle',
                     component: LifeStyle,

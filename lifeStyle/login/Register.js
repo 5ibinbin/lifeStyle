@@ -94,7 +94,6 @@ class Register extends Component {
                 Util.showToast('注册成功');
             }
         });
-
     };
     _goBack = () => {
         const {navigator} = this.props;

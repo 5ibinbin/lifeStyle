@@ -8,6 +8,7 @@ import {
     View,
     Text
 } from 'react-native';
+import StorageUtil from './utils/StorageUtil';
 
 class Home extends Component {
     constructor(props) {
@@ -18,6 +19,11 @@ class Home extends Component {
     }
 
     componentDidMount() {
+        // StorageUtil.get('sessionToken').then((username) => {
+        //     this.setState({
+        //         username:username
+        //     })
+        // });
         this.setState({
             username: this.props.username
         })
