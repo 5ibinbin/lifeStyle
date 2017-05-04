@@ -8,6 +8,6 @@ var API_ADDRESS = 'https://leancloud.cn:443/1.1';
 var GLOBAL = {
     HOST: API_ADDRESS,
     LOGIN: API_ADDRESS + '/login?',
-    REGISTER: API_ADDRESS + 'users'
+    REGISTER: API_ADDRESS + '/users'
 };
 export default GLOBAL;

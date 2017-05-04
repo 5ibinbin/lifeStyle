@@ -112,27 +112,21 @@ class Login extends Component {
         let username = this.state.username;
         let password = this.state.password;
         let url = Global.LOGIN + "username=" + username + "&password=" + password;
-        console.log(url);
+        if (Util.isEmpty(username)) {
+            console.log('请输入用户名');
+            Util.showToast('请输入用户名');
+            return;
+        }
+        if (Util.isEmpty(password)) {
+            console.log('请输入密码');
+            Util.showToast('请输入密码');
+            return;
+        }
         NetUtil.get(url, function (res) {
             console.log(res);
             console.log(res.hasOwnProperty('code'));
-            if (Util.isEmpty(username)) {
-                console.log('请输入用户名');
-                Util.showToast('请输入用户名');
-                return;
-            }
-            if (Util.isEmpty(password)) {
-                console.log('请输入密码');
-                Util.showToast('请输入密码');
-                return;
-            }
             if (res.hasOwnProperty('code')){
-                if (res.code === '200') {
-                    console.log(res.error);
-                }
-                if (res.code === '210') {
-                    console.log('用户名和密码不匹配');
-                }
+                Util.showToast(res.error);
             } else {
                 navigatorOrigin.push({
                     name: 'lifeStyle',

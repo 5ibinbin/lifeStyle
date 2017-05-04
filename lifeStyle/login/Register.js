@@ -67,21 +67,34 @@ class Register extends Component {
     }
 
     _register = () => {
+        let that = this;
         let username = this.state.username;
         let password = this.state.password;
-        let formDate = new FormData();
         let url = Global.REGISTER;
-        formDate.append("username", username);
-        formDate.append("password", password);
-
-        console.log(username);
-        console.log(password);
-        console.log(formDate);
-
-        NetUtil.postJson(url, formDate, function (res) {
+        let data = {
+            "username":username,
+            "password":password,
+        };
+        if (Util.isEmpty(username)) {
+            console.log('请输入用户名');
+            Util.showToast('请输入用户名');
+            return;
+        }
+        if (Util.isEmpty(password)) {
+            console.log('请输入密码');
+            Util.showToast('请输入密码');
+            return;
+        }
+        NetUtil.postJson(url, data, function (res) {
             console.log(res);
+            if (res.hasOwnProperty('code')){
+                Util.showToast(res.error);
+            } else {
+                that._goBack();
+                Util.showToast('注册成功');
+            }
         });
-        this._goBack();
+
     };
     _goBack = () => {
         const {navigator} = this.props;
