@@ -24,7 +24,6 @@ class NetUtil extends Component {
             body: JSON.stringify(data)
         };
 
-        console.log(fetchOption);
         fetch(url, fetchOption)
             .then((response) => response.text())
             .then((responseText) => {

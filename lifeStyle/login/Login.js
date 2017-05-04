@@ -108,29 +108,29 @@ class Login extends Component {
     }
 
     _login = () => {
+        let _this = this;
         let navigatorOrigin=this.props.navigator;
         let username = this.state.username;
         let password = this.state.password;
         let url = Global.LOGIN + "username=" + username + "&password=" + password;
         if (Util.isEmpty(username)) {
-            console.log('请输入用户名');
             Util.showToast('请输入用户名');
             return;
         }
         if (Util.isEmpty(password)) {
-            console.log('请输入密码');
             Util.showToast('请输入密码');
             return;
         }
         NetUtil.get(url, function (res) {
-            console.log(res);
-            console.log(res.hasOwnProperty('code'));
             if (res.hasOwnProperty('code')){
                 Util.showToast(res.error);
             } else {
                 navigatorOrigin.push({
                     name: 'lifeStyle',
-                    component: LifeStyle
+                    component: LifeStyle,
+                    params:{
+                        username: _this.state.username
+                    }
                 });
             }
         });
