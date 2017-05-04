@@ -18,24 +18,21 @@ class StorageUtil extends Component {
             return jsonValue;
         })
     }
-
     /*
      * 保存
      * */
     static save(key, value, callback) {
         return AsyncStorage.setItem(key, JsonUtil.jsonToStr(value), callback);
     }
-
     /*
      * 更新
      * */
     static update(key, value) {
         StorageUtil.get(key).then((item) => {
             value = typeof value === 'string' ? value : Object.assign({}, item, value);
-            return AsyncStorage.setItem(key, JSON.stringify(value));
+            return AsyncStorage.setItem(key, JsonUtil.jsonToStr(value));
         })
     }
-
     /*
      * 删除
      * */
