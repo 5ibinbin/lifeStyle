@@ -46,7 +46,7 @@ class Home extends Component {
             <View style={styles.container}>
                 <Header
                     title={this.state.title}
-                    backState={false}/>
+                    backState={'false'}/>
                 <ListView
                     dataSource={this.state.dataSource}
                     renderRow={this.renderMovie}

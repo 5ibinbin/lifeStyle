@@ -14,7 +14,7 @@ import {
 class Header extends Component {
     static propTypes = {
         title: PropTypes.string.isRequired,
-        backState: PropTypes.boolean,
+        backState: PropTypes.string,
         onPress: PropTypes.func
     };
 
@@ -28,9 +28,9 @@ class Header extends Component {
                 {
                     this.props.backState === 'true' ? (
                     <TouchableOpacity onPress={this.props.onPress}>
-                        {/*<View style={styles.header_back} onPress={this.props.onPress}>*/}
+                        <View style={styles.header_back} onPress={this.props.onPress}>
                             <Image onPress={this.props.onPress} style={styles.header_img} source={require('../img/black-left.png')}></Image>
-                        {/*</View>*/}
+                        </View>
                     </TouchableOpacity>) : <View style={{width:30}}/>
                 }
 
@@ -50,7 +50,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     header_back:{
-        paddingLeft:10,
+        marginLeft:10,
+        marginRight: 10,
         height:20,
         width:20
     },
@@ -62,8 +63,8 @@ const styles = StyleSheet.create({
     header_text : {
         flex:1,
         alignSelf:'center',
-        marginLeft: -40,
-        backgroundColor:'transparent'
+        marginRight: 30,
+        backgroundColor:'transparent',
     },
     textStyle: {
         fontSize:18,
