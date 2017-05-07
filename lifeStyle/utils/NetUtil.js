@@ -6,6 +6,7 @@ import React, {Component} from 'react';
 
 class NetUtil extends Component {
 
+    static DouB_Api = 'https://api.douban.com/v2/movie/top250?start=0&count=15';
     /**
      * post请求
      * url : 请求地址

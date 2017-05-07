@@ -8,6 +8,7 @@ import {
     View,
     Text,
     Image,
+    ScrollView,
     TextInput,
     ToastAndroid,
     TouchableOpacity
@@ -110,7 +111,6 @@ class Login extends Component {
 
     _login = () => {
         let _this = this;
-        let navigatorOrigin=this.props.navigator;
         let username = this.state.username;
         let password = this.state.password;
         let url = Global.LOGIN + "username=" + username + "&password=" + password;
@@ -129,7 +129,7 @@ class Login extends Component {
                 StorageUtil.save('sessionToken', res.sessionToken, function () {
                     console.log('成功');
                 });
-                navigatorOrigin.push({
+                _this.props.navigator.push({
                     name: 'lifeStyle',
                     component: LifeStyle,
                     params:{

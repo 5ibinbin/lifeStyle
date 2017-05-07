@@ -16,6 +16,7 @@ import Global from '../utils/Global';
 import NetUtil from '../utils/NetUtil';
 import JsonUtil from '../utils/JsonUtil';
 import Util from '../utils/Util';
+import Header from '../component/Header';
 
 class Register extends Component {
 
@@ -36,6 +37,10 @@ class Register extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <Header
+                    title={'首页'}
+                    backState ={'true'}
+                    onPress={() => this._goBack()}/>
                 <Image source={require('../img/logo.png')} style={styles.image}/>
                 <TextInput
                     style={styles.user_input}
@@ -72,8 +77,8 @@ class Register extends Component {
         let password = this.state.password;
         let url = Global.REGISTER;
         let data = {
-            "username":username,
-            "password":password,
+            "username": username,
+            "password": password,
         };
         if (Util.isEmpty(username)) {
             console.log('请输入用户名');
@@ -87,7 +92,7 @@ class Register extends Component {
         }
         NetUtil.postJson(url, data, function (res) {
             console.log(res);
-            if (res.hasOwnProperty('code')){
+            if (res.hasOwnProperty('code')) {
                 Util.showToast(res.error);
             } else {
                 that._goBack();
@@ -96,6 +101,7 @@ class Register extends Component {
         });
     };
     _goBack = () => {
+        console.log('back');
         const {navigator} = this.props;
         if (navigator) {
             navigator.pop();
@@ -112,7 +118,7 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         height: 100,
         width: 100,
-        marginTop: 80,
+        marginTop: 60,
         alignSelf: 'center',
     },
     user_input: {

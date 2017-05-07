@@ -10,6 +10,12 @@ import JsonUtil from '../utils/JsonUtil'
 
 class StorageUtil extends Component {
     /*
+     * 保存
+     * */
+    static save(key, value, callback) {
+        return AsyncStorage.setItem(key, JsonUtil.jsonToStr(value), callback);
+    }
+    /*
      * 获取
      * */
     static get(key) {
@@ -17,12 +23,6 @@ class StorageUtil extends Component {
             const jsonValue = JsonUtil.strToJson(value);
             return jsonValue;
         })
-    }
-    /*
-     * 保存
-     * */
-    static save(key, value, callback) {
-        return AsyncStorage.setItem(key, JsonUtil.jsonToStr(value), callback);
     }
     /*
      * 更新
