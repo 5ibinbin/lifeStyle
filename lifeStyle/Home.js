@@ -62,6 +62,11 @@ class Home extends Component {
     }
 
     renderMovie(movie) {
+        let original_title = movie.original_title;
+        let movie_title = movie.title;
+        if (movie_title === original_title){
+            original_title = '';
+        }
         return (
             <TouchableOpacity onPress={() => this.goMovieDetail(movie)}>
                 <View style={styles.movieItem}>
@@ -70,7 +75,7 @@ class Home extends Component {
                     </View>
                     <View style={styles.movieItemRight}>
                         <Text style={styles.movieTitle}
-                              numberOfLines={1}>{movie.title} &nbsp;&nbsp;{movie.original_title}</Text>
+                              numberOfLines={1}>{movie_title} &nbsp;&nbsp;{original_title}</Text>
                         <Text style={styles.movieSummary}
                               numberOfLines={1}>{'导演：'} {this.getMovieCasts(1, movie.directors)}</Text>
                         <Text style={styles.movieSummary}
