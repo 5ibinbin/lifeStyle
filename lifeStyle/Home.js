@@ -17,6 +17,7 @@ import StorageUtil from './utils/StorageUtil';
 import NetUtil from './utils/NetUtil'
 import Header from './component/Header';
 import MovieDetail from './home/MovieDetail';
+import PullRefreshScrollView from 'react-native-pullrefresh-scrollview';
 
 class Home extends Component {
     constructor(props) {
@@ -27,16 +28,18 @@ class Home extends Component {
             movieId: '',
             title: '豆瓣电影Top250',
             dataSource: ds,
-            loaded: false
+            load: false,
+            pageStart: 0,
+            pageEnd: 15
         }
     }
 
     componentDidMount() {
-        // StorageUtil.get('sessionToken').then((username) => {
-        //     this.setState({
-        //         username:username
-        //     })
-        // });
+        StorageUtil.get('sessionToken').then((username) => {
+            this.setState({
+                username:username
+            })
+        });
         this.getMovieData();
     }
 
@@ -47,9 +50,13 @@ class Home extends Component {
                     title={this.state.title}
                     backState={'false'}/>
                 <ListView
+                    style={styles.listView}
+                    renderScrollComponent={(props) => <PullRefreshScrollView
+                        onRefresh={(PullRefresh) => this.onRefresh(PullRefresh)}
+                        onLoadMore={(PullRefresh) => this.onLoadMore(PullRefresh)}
+                        useLoadMore={1} {...props}/>}
                     dataSource={this.state.dataSource}
-                    renderRow={this.renderMovie.bind(this)}
-                    style={styles.listView}/>
+                    renderRow={this.renderMovie.bind(this)}/>
             </View>
         )
     }
@@ -76,22 +83,68 @@ class Home extends Component {
             </TouchableOpacity>
         )
     }
+
+    onRefresh(PullRefresh) {
+        let _this = this;
+        let params = 'start=' + _this.state.pageStart + '&count=' + _this.state.pageEnd;
+        console.log('94'+params);
+        fetch(NetUtil.DouB_Api + NetUtil.movie_Top250 + params)
+            .then((response) => (response.json()))
+            .then((responseData) => {
+                _this.setState({
+                    title: responseData.title,
+                    movieId: responseData.id,
+                    dataSource: this.state.dataSource.cloneWithRows(responseData.subjects),
+                    load: true
+                });
+                PullRefresh.onRefreshEnd();
+            })
+            .done();
+    }
+
+    onLoadMore(PullRefresh) {
+        let _this = this;
+        let pageStart = _this.state.pageStart;
+        let pageEnd = _this.state.pageEnd + 15;
+        _this.setState({
+            pageStart:pageStart,
+            pageEnd:pageEnd
+        });
+        let params = 'start=' + pageStart + '&count=' + pageEnd;
+        console.log('118'+params);
+        fetch(NetUtil.DouB_Api + NetUtil.movie_Top250 + params)
+            .then((response) => (response.json()))
+            .then((responseData) => {
+                _this.setState({
+                    title: responseData.title,
+                    movieId: responseData.id,
+                    dataSource: this.state.dataSource.cloneWithRows(responseData.subjects),
+                    load: true
+                });
+                // PullRefresh.onLoadMoreEnd();
+            })
+            .done();
+    }
     /*
      * 获取列表数据
      * */
     getMovieData() {
-        fetch(NetUtil.DouB_Api + NetUtil.movie_Top250)
+        let _this = this;
+        let params = 'start=' + _this.state.pageStart + '&count=' + _this.state.pageEnd;
+        console.log('139'+params);
+        fetch(NetUtil.DouB_Api + NetUtil.movie_Top250 + params)
             .then((response) => (response.json()))
             .then((responseData) => {
                 this.setState({
                     title: responseData.title,
                     movieId: responseData.id,
                     dataSource: this.state.dataSource.cloneWithRows(responseData.subjects),
-                    loaded: true
+                    load: true
                 })
             })
             .done();
     }
+
     /*
      * 数据之间添加 '/'
      * */

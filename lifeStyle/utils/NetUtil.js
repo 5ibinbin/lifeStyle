@@ -7,7 +7,7 @@ import React, {Component} from 'react';
 class NetUtil extends Component {
 
     static DouB_Api = 'https://api.douban.com/v2/';
-    static movie_Top250 = 'movie/top250?start=0&count=15';
+    static movie_Top250 = 'movie/top250?';
     static movieDetail = 'movie/subject/1292052';
     /**
      * post请求
