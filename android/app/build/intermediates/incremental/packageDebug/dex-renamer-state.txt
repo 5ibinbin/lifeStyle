@@ -1,4 +1,4 @@
-#Sun Apr 09 11:51:18 CST 2017
+#Mon May 08 18:26:23 CST 2017
 base.0=/Users/Cral-Gates/RNProject/lifeStyle/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_0ef6dc3cd3bd1992261e2ec498e4c7cedc631a58
 renamed.1=classes2.dex
 renamed.0=classes.dex

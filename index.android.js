@@ -4,50 +4,42 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import AV from 'leancloud-storage';
+
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+    AppRegistry,
+    Navigator
 } from 'react-native';
 
-export default class lifeStyle extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
+import Login from './lifeStyle/login/Login'
+AV.initialize('M401fErHUPYhDKmgp0wjqVRX-gzGzoHsz', 'Jqnvt1Lmt34vQh1JDRUpRAqq');
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+
+export default class lifeStyle extends Component {
+    //第一次调用的时候，第一个参数route就是initialRoute
+    renderScene = (route, navigator) => {
+        let Component = route.component;
+        return <Component {...route.params} navigator={navigator}/>
+    };
+
+    initialRoute = {
+        name: 'login',
+        component: Login,
+    };
+
+    configureScene = (route) => {
+        return Navigator.SceneConfigs.FloatFromRight;
+    };
+
+    render() {
+        return (
+            <Navigator
+                initialRoute={this.initialRoute}
+                renderScene={this.renderScene}
+                configureScene={this.configureScene}/>
+        );
+    }
+}
 
 AppRegistry.registerComponent('lifeStyle', () => lifeStyle);

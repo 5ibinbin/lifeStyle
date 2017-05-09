@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.1"
-        sha1="2f387bdbde431de485e4446118cf62b04e29d493">
+        sha1="7dcc0e56e1907ff5668602b8436769c08ccf2db0">
         <dex dex="/Users/Cral-Gates/RNProject/lifeStyle/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_b5354b69ef0572f3eb8ac9bcd7549c802b304045/classes.dex" />
     </item>
     <item
@@ -70,7 +70,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.1"
-        sha1="1d51a0d4c22b10955d629a075dee5c4822188737">
+        sha1="8a619e9446b42bfb209db4fb8ebdfc1d8e836316">
         <dex dex="/Users/Cral-Gates/RNProject/lifeStyle/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_0ef6dc3cd3bd1992261e2ec498e4c7cedc631a58/classes.dex" />
     </item>
     <item
