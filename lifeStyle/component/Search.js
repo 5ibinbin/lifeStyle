@@ -10,6 +10,7 @@ import {
     Text,
     View,
     Image,
+    Dimensions,
     TextInput
 } from 'react-native';
 
@@ -31,22 +32,28 @@ class Search extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.innerContainer}>
-                    <Image style={styles.image} source={require('../img/life-search.png')}></Image>
-                    <TextInput
-                        underlineColorAndroid={'transparent'}
-                        style={styles.textInput}
-                        multiline={false}
-                        placeholder={this.props.txtValue}
-                        password={this.props.txtHide}
-                        onChangeText={(text) => {
-                            this.setState({
-                                txtValue: text
-                            })
-                        }}
-                        value={this.props.txtValue}/>
-                    <TouchableOpacity onPress={this.props.onPress}>
-                        <Text style={styles.textFunc}>{'搜索'}</Text>
-                    </TouchableOpacity>
+                    <View style={styles.imageView}>
+                        <Image style={styles.image} source={require('../img/life-search.png')}></Image>
+                    </View>
+                    <View>
+                        <TextInput
+                            underlineColorAndroid={'transparent'}
+                            style={styles.textInput}
+                            multiline={false}
+                            placeholder={this.props.txtValue}
+                            password={this.props.txtHide}
+                            onChangeText={(text) => {
+                                this.setState({
+                                    txtValue: text
+                                })
+                            }}
+                            value={this.props.txtValue}/>
+                    </View>
+                    <View style={styles.textView}>
+                        <TouchableOpacity onPress={this.props.onPress}>
+                            <Text style={styles.textFunc}>{'搜索'}</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         )
@@ -55,31 +62,42 @@ class Search extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        // flex: 1,
         backgroundColor: '#f5f5f5'
     },
     innerContainer: {
-        height: 50,
-        // flex: 1,
+        height: 40,
         borderWidth: 1,
-        borderColor: '#51A7F9',
-        marginLeft: 50,
-        marginRight: 50,
-        borderRadius: 25,
+        borderColor: '#FFDE00',
+        marginLeft: 40,
+        marginRight: 40,
+        marginTop: 5,
+        marginBottom:5,
+        borderRadius: 20,
         flexDirection: 'row',
-        backgroundColor:'white'
+        backgroundColor: 'white',
+    },
+    imageView: {
+        height: 40,
+        width: 40
     },
     image: {
         height: 20,
-        width: 20
+        width: 20,
+        margin: 10,
     },
     textInput: {
-        height: 50,
-        width: 200
+        height: 40,
+        width: Dimensions.get('window').width - 180
+    },
+    textView: {
+        height: 40,
+        width: 60
     },
     textFunc: {
         fontSize: 16,
-        color: '#FFDE00'
+        color: '#FFDE00',
+        margin: 10,
+        textAlign: 'left'
     }
 });
 export default Search;
