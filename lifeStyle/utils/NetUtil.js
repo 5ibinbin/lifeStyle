@@ -42,10 +42,8 @@ class NetUtil extends Component {
      */
     static get(url, callback) {
         var fetchOptions = {
-            method: 'POST',
+            method: 'GET',
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
                 'X-LC-Id':'M401fErHUPYhDKmgp0wjqVRX-gzGzoHsz',
                 'X-LC-Key':'Jqnvt1Lmt34vQh1JDRUpRAqq'
             }

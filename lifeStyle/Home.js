@@ -14,7 +14,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 import StorageUtil from './utils/StorageUtil';
-import NetUtil from './utils/NetUtil'
+import NetUtil from './utils/NetUtil';
 import Header from './component/Header';
 import MovieDetail from './home/MovieDetail';
 import PullRefreshScrollView from 'react-native-pullrefresh-scrollview';
@@ -35,11 +35,6 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        StorageUtil.get('sessionToken').then((username) => {
-            this.setState({
-                username:username
-            })
-        });
         this.getMovieData();
     }
 
@@ -64,7 +59,7 @@ class Home extends Component {
     renderMovie(movie) {
         let original_title = movie.original_title;
         let movie_title = movie.title;
-        if (movie_title === original_title){
+        if (movie_title === original_title) {
             original_title = '';
         }
         return (
@@ -92,7 +87,6 @@ class Home extends Component {
     onRefresh(PullRefresh) {
         let _this = this;
         let params = 'start=' + _this.state.pageStart + '&count=' + _this.state.pageEnd;
-        console.log('94'+params);
         fetch(NetUtil.DouB_Api + NetUtil.movie_Top250 + params)
             .then((response) => (response.json()))
             .then((responseData) => {
@@ -112,11 +106,10 @@ class Home extends Component {
         let pageStart = _this.state.pageStart;
         let pageEnd = _this.state.pageEnd + 15;
         _this.setState({
-            pageStart:pageStart,
-            pageEnd:pageEnd
+            pageStart: pageStart,
+            pageEnd: pageEnd
         });
         let params = 'start=' + pageStart + '&count=' + pageEnd;
-        console.log('118'+params);
         fetch(NetUtil.DouB_Api + NetUtil.movie_Top250 + params)
             .then((response) => (response.json()))
             .then((responseData) => {
@@ -130,13 +123,13 @@ class Home extends Component {
             })
             .done();
     }
+
     /*
      * 获取列表数据
      * */
     getMovieData() {
         let _this = this;
         let params = 'start=' + _this.state.pageStart + '&count=' + _this.state.pageEnd;
-        console.log('139'+params);
         fetch(NetUtil.DouB_Api + NetUtil.movie_Top250 + params)
             .then((response) => (response.json()))
             .then((responseData) => {

@@ -41,7 +41,6 @@ class Header extends Component {
 
                         </TouchableOpacity>) : <View style={{width: 70}}/>
                 }
-
                 <View style={styles.header_text}>
                     <Text style={styles.textStyle}>{this.props.title}</Text>
                 </View>
@@ -54,6 +53,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         height: 44,
+        paddingTop:20,
         backgroundColor: '#FFDE00',
         alignItems: 'center'
     },

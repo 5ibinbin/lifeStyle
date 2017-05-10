@@ -6,21 +6,7 @@ import React, {Component} from 'react';
 import Toast from 'react-native-root-toast';
 
 class Util extends Component {
-    /*
-     * 格式化日期
-     * */
-    static formatDate() {
-        var moment = require('moment');
-        return moment.format("YYYY-MM-DD");
-    }
 
-    /*
-     * 格式化时间
-     * */
-    static formatTime() {
-        var moment = require('moment');
-        return moment.format("HH:mm:ss");
-    }
     /*
     * 判断字符
     * */

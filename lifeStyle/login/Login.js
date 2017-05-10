@@ -126,7 +126,7 @@ class Login extends Component {
             if (res.hasOwnProperty('code')){
                 Util.showToast(res.error);
             } else {
-                StorageUtil.save('sessionToken', res.sessionToken, function () {
+                StorageUtil.save('username', res.username, function () {
                     console.log('成功');
                 });
                 _this.props.navigator.push({
