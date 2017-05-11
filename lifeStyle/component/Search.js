@@ -40,8 +40,8 @@ class Search extends Component {
                             underlineColorAndroid={'transparent'}
                             style={styles.textInput}
                             multiline={false}
-                            placeholder={this.props.txtValue}
-                            password={this.props.txtHide}
+                            placeholder={this.props.txtHide}
+                            password={this.props.isPassword}
                             onChangeText={(text) => {
                                 this.setState({
                                     txtValue: text

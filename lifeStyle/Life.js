@@ -8,6 +8,7 @@ import {
     View,
     Text,
     ListView,
+    Dimensions,
     TouchableOpacity
 } from 'react-native';
 import Header from "./component/Header";
@@ -17,6 +18,7 @@ import JsonUtil from "./utils/JsonUtil";
 import StorageUtil from "./utils/StorageUtil";
 import Util from './utils/StorageUtil';
 import Search from './component/Search';
+import NoteDetail from './life/NoteDetail';
 
 import PullRefreshScrollView from 'react-native-pullrefresh-scrollview';
 
@@ -30,7 +32,7 @@ class Life extends Component {
             title: '笔记',
             dataSource: ds,
             load: false,
-            searchContent:''
+            searchContent: ''
         };
     }
 
@@ -51,8 +53,9 @@ class Life extends Component {
                     backState={'false'}/>
                 <Search
                     textValue={this.state.searchContent}/>
+                <View style={styles.line}/>
                 <ListView
-                    style={styles.listView}
+                    contentContainerStyle={styles.listView}
                     renderScrollComponent={(props) => <PullRefreshScrollView
                         onRefresh={(PullRefresh) => this.onRefresh(PullRefresh)}
                         {...props}/>}
@@ -65,11 +68,11 @@ class Life extends Component {
 
     renderNote(note) {
         return (
-            <TouchableOpacity>
-                <View>
-                    <Text>{note.title}</Text>
-                    <Text>{note.content}</Text>
-                    <Text>{note.createdAt}</Text>
+            <TouchableOpacity onPress={()=>this.goNoteDetail(note)}>
+                <View style={styles.listViewItem}>
+                    <Text style={styles.noteDate}>{note.createdAt.substring(0, 10)}</Text>
+                    <Text style={styles.noteTitle}>{note.title}</Text>
+                    <Text style={styles.noteContent}>{note.content}</Text>
                 </View>
             </TouchableOpacity>
         )
@@ -82,7 +85,6 @@ class Life extends Component {
             "author": username
         };
         let url = Global.NOTES + JsonUtil.jsonToStr(where);
-        console.log('78' + url);
         NetUtil.get(url, function (response) {
             console.log(response);
             _this.setState({
@@ -110,6 +112,16 @@ class Life extends Component {
                 load: true
             });
         });
+    };
+
+    goNoteDetail = (note) =>{
+        this.props.navigator.push({
+            name: 'NoteDetail',
+            component: NoteDetail,
+            params: {
+                noteDetail: note,
+            }
+        });
     }
 }
 
@@ -118,7 +130,44 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#f5f5f5'
     },
-    listView: {}
+    line: {
+        height: 1,
+        width: Dimensions.get('window').width,
+        backgroundColor: '#dddddd'
+    },
+    listView: {
+        margin:0,
+        padding:0
+    },
+    listViewItem: {
+        width: Dimensions.get('window').width - 20,
+        backgroundColor: 'white',
+        borderRadius:10,
+        marginTop:10,
+        marginLeft:10,
+        marginRight:10,
+        padding:10
+    },
+    noteDate: {
+        fontSize:12,
+        color:'#ffde00',
+        margin:2
+    },
+    noteTitle: {
+        fontSize:16,
+        color:'black',
+        marginTop:4,
+        marginBottom:4,
+        marginLeft:2,
+        fontWeight:'bold'
+    },
+    noteContent: {
+        fontSize:14,
+        color:'#666',
+        margin:2,
+        maxHeight:48,
+        lineHeight:14
+    }
 });
 
 export default Life;
