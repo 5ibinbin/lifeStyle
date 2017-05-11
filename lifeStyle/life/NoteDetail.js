@@ -18,7 +18,7 @@ class NoteDetail extends Component {
             noteDetail: '',
             noteTitle: '',
             noteContent: '',
-            height: 20
+            height: 40
         }
     }
 
@@ -27,12 +27,12 @@ class NoteDetail extends Component {
             title: '',
             noteDetail: this.props.noteDetail,
             noteTitle: this.props.noteDetail.title,
-            noteContent: this.props.noteDetail.content
+            noteContent: this.props.noteDetail.content,
         });
     }
 
     render() {
-        console.log(this.state.height);
+        console.log(this.state.minHeight);
         return (
             <View>
                 <Header
@@ -47,7 +47,7 @@ class NoteDetail extends Component {
                     value={this.state.noteTitle}
                     onChangeText={(noteTitle) => this.setState({noteTitle})}/>
                 <TextInput
-                    style={[styles.noteDetailContent, {height:Math.max(this.state.height)}]}
+                    style={[styles.noteDetailContent, {height: this.state.height}]}
                     multiline={true}
                     secureTextEntry={false}
                     underlineColorAndroid={'transparent'}
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffde00',
         marginLeft: 20,
         marginRight: 20,
-        lineHeight: 20
+        lineHeight: 20,
     }
 });
 

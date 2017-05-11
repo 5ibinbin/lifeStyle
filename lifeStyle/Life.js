@@ -9,6 +9,7 @@ import {
     Text,
     ListView,
     Dimensions,
+    Image,
     TouchableOpacity
 } from 'react-native';
 import Header from "./component/Header";
@@ -19,6 +20,7 @@ import StorageUtil from "./utils/StorageUtil";
 import Util from './utils/StorageUtil';
 import Search from './component/Search';
 import NoteDetail from './life/NoteDetail';
+import AddNote from './life/AddNote';
 
 import PullRefreshScrollView from 'react-native-pullrefresh-scrollview';
 
@@ -62,6 +64,11 @@ class Life extends Component {
                     dataSource={this.state.dataSource}
                     renderRow={this.renderNote.bind(this)}
                     enableEmptySections={true}/>
+                <TouchableOpacity onPress={() => this.goAddNote()}>
+                    <View style={styles.addNote}>
+                        <Image style={styles.addImg} source={require('./img/addimg.png')}></Image>
+                    </View>
+                </TouchableOpacity>
             </View>
         )
     }
@@ -122,6 +129,13 @@ class Life extends Component {
                 noteDetail: note,
             }
         });
+    };
+
+    goAddNote = () =>{
+        this.props.navigator.push({
+            name: 'AddNote',
+            component: AddNote,
+        });
     }
 }
 
@@ -167,6 +181,18 @@ const styles = StyleSheet.create({
         margin:2,
         maxHeight:48,
         lineHeight:14
+    },
+    addNote: {
+        flexDirection:'row',
+        backgroundColor:'#ffde00',
+        borderRadius:25,
+        right:40,
+        bottom:40,
+        position: 'absolute'
+    },
+    addImg: {
+        height: 50,
+        width:50
     }
 });
 
