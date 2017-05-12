@@ -25,7 +25,6 @@ class AddNote extends Component {
     }
 
     render() {
-        console.log(this.state.minHeight);
         return (
             <View>
                 <Header

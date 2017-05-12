@@ -34,7 +34,7 @@ class Header extends Component {
                                     <Image onPress={this.props.onPress} style={styles.header_img}
                                            source={require('../img/black-left.png')}></Image>
                                 </View>
-                                <View>
+                                <View style={styles.header_back_text}>
                                     <Text>{'返回'}</Text>
                                 </View>
                             </View>
@@ -52,7 +52,7 @@ class Header extends Component {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        height: 44,
+        height: 64,
         paddingTop:20,
         backgroundColor: '#FFDE00',
         alignItems: 'center'
@@ -65,7 +65,8 @@ const styles = StyleSheet.create({
     },
     header_back_text: {
         flexDirection: 'row',
-        width: 40
+        alignSelf: 'center',
+        width: 44
     },
     header_img: {
         flexDirection: 'row',

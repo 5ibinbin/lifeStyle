@@ -18,7 +18,7 @@ class NoteDetail extends Component {
             noteDetail: '',
             noteTitle: '',
             noteContent: '',
-            height: 40
+            height: 100
         }
     }
 

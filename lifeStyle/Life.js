@@ -64,9 +64,10 @@ class Life extends Component {
                     dataSource={this.state.dataSource}
                     renderRow={this.renderNote.bind(this)}
                     enableEmptySections={true}/>
+
                 <TouchableOpacity onPress={() => this.goAddNote()}>
                     <View style={styles.addNote}>
-                        <Image style={styles.addImg} source={require('./img/addimg.png')}></Image>
+                        <Image style={styles.addImg} source={require('./img/addimg.png')}/>
                     </View>
                 </TouchableOpacity>
             </View>
@@ -75,7 +76,7 @@ class Life extends Component {
 
     renderNote(note) {
         return (
-            <TouchableOpacity onPress={()=>this.goNoteDetail(note)}>
+            <TouchableOpacity onPress={() => this.goNoteDetail(note)}>
                 <View style={styles.listViewItem}>
                     <Text style={styles.noteDate}>{note.createdAt.substring(0, 10)}</Text>
                     <Text style={styles.noteTitle}>{note.title}</Text>
@@ -121,7 +122,7 @@ class Life extends Component {
         });
     };
 
-    goNoteDetail = (note) =>{
+    goNoteDetail = (note) => {
         this.props.navigator.push({
             name: 'NoteDetail',
             component: NoteDetail,
@@ -131,10 +132,13 @@ class Life extends Component {
         });
     };
 
-    goAddNote = () =>{
+    goAddNote = () => {
         this.props.navigator.push({
             name: 'AddNote',
             component: AddNote,
+            params: {
+                title: ''
+            }
         });
     }
 }
@@ -150,49 +154,51 @@ const styles = StyleSheet.create({
         backgroundColor: '#dddddd'
     },
     listView: {
-        margin:0,
-        padding:0
+        margin: 0,
+        padding: 0
     },
     listViewItem: {
         width: Dimensions.get('window').width - 20,
         backgroundColor: 'white',
-        borderRadius:10,
-        marginTop:10,
-        marginLeft:10,
-        marginRight:10,
-        padding:10
+        borderRadius: 10,
+        marginTop: 10,
+        marginLeft: 10,
+        marginRight: 10,
+        padding: 10
     },
     noteDate: {
-        fontSize:12,
-        color:'#ffde00',
-        margin:2
+        fontSize: 12,
+        color: '#ffde00',
+        margin: 2
     },
     noteTitle: {
-        fontSize:16,
-        color:'black',
-        marginTop:4,
-        marginBottom:4,
-        marginLeft:2,
-        fontWeight:'bold'
+        fontSize: 16,
+        color: 'black',
+        marginTop: 4,
+        marginBottom: 4,
+        marginLeft: 2,
+        fontWeight: 'bold'
     },
     noteContent: {
-        fontSize:14,
-        color:'#666',
-        margin:2,
-        maxHeight:48,
-        lineHeight:14
+        fontSize: 14,
+        color: '#666',
+        margin: 2,
+        maxHeight: 48,
+        lineHeight: 14
     },
     addNote: {
-        flexDirection:'row',
-        backgroundColor:'#ffde00',
-        borderRadius:25,
-        right:40,
-        bottom:40,
-        position: 'absolute'
+        backgroundColor: '#ffde00',
+        borderRadius: 25,
+        right: 40,
+        bottom: 40,
+        position: 'absolute',
     },
     addImg: {
+        // right: 40,
+        // bottom: 40,
+        // position: 'absolute',
         height: 50,
-        width:50
+        width: 50
     }
 });
 
