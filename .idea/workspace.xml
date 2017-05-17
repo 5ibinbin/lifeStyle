@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfd7cc41-5fc8-4666-85bf-bae171f9d1b3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/lifeStyle.xcodeproj/project.xcworkspace/xcuserdata/Cral-Gates.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/ios/lifeStyle.xcodeproj/project.xcworkspace/xcuserdata/Cral-Gates.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lifeStyle/Life.js" afterPath="$PROJECT_DIR$/lifeStyle/Life.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lifeStyle/component/Header.js" afterPath="$PROJECT_DIR$/lifeStyle/component/Header.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lifeStyle/life/AddNote.js" afterPath="$PROJECT_DIR$/lifeStyle/life/AddNote.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lifeStyle/life/NoteDetail.js" afterPath="$PROJECT_DIR$/lifeStyle/life/NoteDetail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lifeStyle/login/Login.js" afterPath="$PROJECT_DIR$/lifeStyle/login/Login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lifeStyle/utils/Global.js" afterPath="$PROJECT_DIR$/lifeStyle/utils/Global.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lifeStyle/utils/NetUtil.js" afterPath="$PROJECT_DIR$/lifeStyle/utils/NetUtil.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,7 +22,7 @@
       <file leaf-file-name="Life.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lifeStyle/Life.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="1334">
               <caret line="146" column="0" lean-forward="true" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -39,7 +35,7 @@
       <file leaf-file-name="AddNote.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lifeStyle/life/AddNote.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
+            <state relative-caret-position="540">
               <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
               <folding>
                 <element signature="e#47#86#0" expanded="true" />
@@ -51,8 +47,8 @@
       <file leaf-file-name="NoteDetail.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lifeStyle/life/NoteDetail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+            <state relative-caret-position="398">
+              <caret line="91" column="11" lean-forward="false" selection-start-line="91" selection-start-column="11" selection-end-line="91" selection-end-column="11" />
               <folding>
                 <element signature="e#47#86#0" expanded="true" />
               </folding>
@@ -63,7 +59,7 @@
       <file leaf-file-name="Login.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lifeStyle/login/Login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1570">
+            <state relative-caret-position="-520">
               <caret line="58" column="41" lean-forward="false" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
               <folding />
             </state>
@@ -118,9 +114,7 @@
         <option value="$PROJECT_DIR$/lifeStyle/login/Register.js" />
         <option value="$PROJECT_DIR$/lifeStyle/home/MovieDetail.js" />
         <option value="$PROJECT_DIR$/index.android.js" />
-        <option value="$PROJECT_DIR$/lifeStyle/utils/NetUtil.js" />
         <option value="$PROJECT_DIR$/lifeStyle/Home.js" />
-        <option value="$PROJECT_DIR$/lifeStyle/utils/Global.js" />
         <option value="$PROJECT_DIR$/lifeStyle/utils/StorageUtil.js" />
         <option value="$PROJECT_DIR$/lifeStyle/utils/Util.js" />
         <option value="$PROJECT_DIR$/lifeStyle/component/Search.js" />
@@ -128,6 +122,8 @@
         <option value="$PROJECT_DIR$/lifeStyle/component/Header.js" />
         <option value="$PROJECT_DIR$/lifeStyle/life/AddNote.js" />
         <option value="$PROJECT_DIR$/lifeStyle/login/Login.js" />
+        <option value="$PROJECT_DIR$/lifeStyle/utils/NetUtil.js" />
+        <option value="$PROJECT_DIR$/lifeStyle/utils/Global.js" />
         <option value="$PROJECT_DIR$/lifeStyle/life/NoteDetail.js" />
       </list>
     </option>
@@ -448,16 +444,15 @@
       <workItem from="1494461614190" duration="1761000" />
       <workItem from="1494506632151" duration="9386000" />
       <workItem from="1494583059686" duration="1233000" />
-      <workItem from="1495027317636" duration="2909000" />
+      <workItem from="1495027317636" duration="3801000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89778000" />
+    <option name="totallyTimeSpent" value="90670000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2494043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -466,7 +461,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29863015" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29863015" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -748,14 +743,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lifeStyle/utils/Global.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="45" lean-forward="false" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lifeStyle/utils/StorageUtil.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -767,14 +754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
           <caret line="37" column="23" lean-forward="false" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lifeStyle/utils/NetUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="52" column="37" lean-forward="false" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -814,25 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lifeStyle/home/MovieDetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="80" column="4" lean-forward="false" selection-start-line="80" selection-start-column="4" selection-end-line="85" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lifeStyle/Life.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="146" column="0" lean-forward="true" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#48#87#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lifeStyle/component/Header.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -851,9 +811,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lifeStyle/home/MovieDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="97" column="14" lean-forward="true" selection-start-line="97" selection-start-column="14" selection-end-line="97" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifeStyle/Life.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1334">
+          <caret line="146" column="0" lean-forward="true" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#48#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifeStyle/login/Login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-520">
+          <caret line="58" column="41" lean-forward="false" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifeStyle/utils/NetUtil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="59" column="26" lean-forward="true" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifeStyle/utils/Global.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="45" lean-forward="false" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lifeStyle/life/AddNote.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
+        <state relative-caret-position="540">
           <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
           <folding>
             <element signature="e#47#86#0" expanded="true" />
@@ -861,18 +864,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lifeStyle/login/Login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1570">
-          <caret line="58" column="41" lean-forward="false" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lifeStyle/life/NoteDetail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+        <state relative-caret-position="398">
+          <caret line="91" column="11" lean-forward="false" selection-start-line="91" selection-start-column="11" selection-end-line="91" selection-end-column="11" />
           <folding>
             <element signature="e#47#86#0" expanded="true" />
           </folding>

@@ -9,6 +9,8 @@ import {
     TextInput
 } from 'react-native';
 import Header from '../component/Header';
+import NetUtil from '../utils/NetUtil';
+import Global from '../utils/Global';
 
 class NoteDetail extends Component {
     constructor(props) {
@@ -71,14 +73,26 @@ class NoteDetail extends Component {
     };
 
     _updateNote = () => {
+        let _this = this;
         const {navigator} = this.props;
-        if (navigator) {
-            navigator.pop();
-        }
+        let url = Global.NoteUpdate + _this.state.noteDetail.objectId;
+        let params = {
+            "title":_this.state.noteTitle,
+            "content":_this.state.noteContent
+        };
+        console.log(url);
+        console.log(params);
+        NetUtil.putJson(url, params, function (res) {
+            console.log(res);
+            if (res.hasOwnProperty('objectId')){
+                if (navigator) {
+                    navigator.pop();
+                }
+            }
+        });
     };
 
     onChange = (event) => {
-        console.log(event.nativeEvent);
         this.setState({
             noteContent: event.nativeEvent.text,
             height: event.nativeEvent.contentSize.height
