@@ -54,7 +54,8 @@ class Life extends Component {
                     title={this.state.title}
                     backState={'false'}/>
                 <Search
-                    textValue={this.state.searchContent}/>
+                    textValue={this.state.searchContent}
+                    onPress={() => this.searchNote()}/>
                 <View style={styles.line}/>
                 <ListView
                     contentContainerStyle={styles.listView}
@@ -112,6 +113,28 @@ class Life extends Component {
         let params = {
             "author": username
         };
+        let url = Global.NOTES + JsonUtil.jsonToStr(params);
+        NetUtil.get(url, function (response) {
+            console.log(response);
+            _this.setState({
+                dataSource: _this.state.dataSource.cloneWithRows(response.results),
+                load: true
+            });
+        });
+    };
+
+    /*
+     * 笔记搜索
+     * */
+    searchNote = () => {
+        let _this = this;
+        let username = this.state.username;
+        let title = _this.state.searchContent;
+        let params = {
+            "author": username,
+            "title": title
+        };
+        console.log(params);
         let url = Global.NOTES + JsonUtil.jsonToStr(params);
         NetUtil.get(url, function (response) {
             console.log(response);

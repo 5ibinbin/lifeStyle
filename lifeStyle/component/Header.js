@@ -15,12 +15,15 @@ class Header extends Component {
     static propTypes = {
         title: PropTypes.string.isRequired,
         backState: PropTypes.string,
-        onPress: PropTypes.func
+        onPress: PropTypes.func,
+        onPressRight: PropTypes.func,
+        subTitle: PropTypes.string
     };
 
     static defaultProps = {
         title: '标题',
-        backState: 'true'
+        backState: 'true',
+        subTitle: ''
     };
 
     render() {
@@ -35,7 +38,7 @@ class Header extends Component {
                                            source={require('../img/black-left.png')}></Image>
                                 </View>
                                 <View style={styles.header_back_text}>
-                                    <Text>{'返回'}</Text>
+                                    <Text style={{fontSize:16}}>{'返回'}</Text>
                                 </View>
                             </View>
 
@@ -43,6 +46,11 @@ class Header extends Component {
                 }
                 <View style={styles.header_text}>
                     <Text style={styles.textStyle}>{this.props.title}</Text>
+                </View>
+                <View style={styles.textRight}>
+                    <TouchableOpacity onPress={this.props.onPressRight}>
+                        <Text style={{fontSize:16}}>{this.props.subTitle}</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         )
@@ -66,7 +74,7 @@ const styles = StyleSheet.create({
     header_back_text: {
         flexDirection: 'row',
         alignSelf: 'center',
-        width: 44
+        width: 44,
     },
     header_img: {
         flexDirection: 'row',
@@ -76,13 +84,19 @@ const styles = StyleSheet.create({
     header_text: {
         flex: 1,
         alignSelf: 'center',
-        marginRight: 60,
         backgroundColor: 'transparent',
     },
     textStyle: {
         fontSize: 18,
         color: 'black',
         textAlign: 'center'
+    },
+    textRight: {
+        width: 40,
+        marginLeft:10,
+        marginRight:10,
+        flexDirection: 'row',
+        alignSelf: 'center',
     }
 });
 

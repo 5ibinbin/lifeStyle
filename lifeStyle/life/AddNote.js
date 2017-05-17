@@ -15,12 +15,14 @@ class AddNote extends Component {
         super(props);
         this.state = {
             title: '',
+            subTitle: ''
         }
     }
 
     componentDidMount() {
         this.setState({
             title: '新增笔记',
+            subTitle: '完成'
         });
     }
 
@@ -29,8 +31,10 @@ class AddNote extends Component {
             <View>
                 <Header
                     title={this.state.title}
+                    subTitle={this.state.subTitle}
                     backState={'true'}
-                    onPress={() => this._goBack()}/>
+                    onPress={() => this._goBack()}
+                    onPressRight={() => this._completeNote()}/>
             </View>
         )
     }
@@ -41,6 +45,13 @@ class AddNote extends Component {
             navigator.pop();
         }
     };
+
+    _completeNote = () => {
+        const {navigator} = this.props;
+        if (navigator) {
+            navigator.pop();
+        }
+    }
 }
 
 const styles = StyleSheet.create({

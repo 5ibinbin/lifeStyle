@@ -56,6 +56,7 @@ class Login extends Component {
                     placeholder={'请输入用户名'}
                     autoFocus={true}
                     numberOfLines={1}
+                    autoCapitalize={'none'}
                     underlineColorAndroid={'transparent'}
                     textAlign="center"
                     onChangeText={(username) => this.setState({username})}/>

@@ -18,13 +18,15 @@ class NoteDetail extends Component {
             noteDetail: '',
             noteTitle: '',
             noteContent: '',
-            height: 100
+            height: 50,
+            subTitle: ''
         }
     }
 
     componentDidMount() {
         this.setState({
-            title: '',
+            title: '笔记详情',
+            subTitle: '完成',
             noteDetail: this.props.noteDetail,
             noteTitle: this.props.noteDetail.title,
             noteContent: this.props.noteDetail.content,
@@ -38,7 +40,9 @@ class NoteDetail extends Component {
                 <Header
                     title={this.state.title}
                     backState={'true'}
-                    onPress={() => this._goBack()}/>
+                    onPress={() => this._goBack()}
+                    subTitle={this.state.subTitle}
+                    onPressRight={() => this._updateNote()}/>
                 <TextInput
                     style={styles.noteDetailTitle}
                     numberOfLines={1}
@@ -53,8 +57,8 @@ class NoteDetail extends Component {
                     underlineColorAndroid={'transparent'}
                     value={this.state.noteContent}
                     onChangeText={(noteContent) => this.setState({noteContent})}
-                    onChange={this.onChange.bind(this)}
-                    onContentSizeChange={this.onContentSizeChange}/>
+                    onChange={() => this.onChange.bind(this)}
+                    onContentSizeChange={(event) => this.onContentSizeChange(event)}/>
             </View>
         )
     }
@@ -66,14 +70,25 @@ class NoteDetail extends Component {
         }
     };
 
-    onChange(event){
+    _updateNote = () => {
+        const {navigator} = this.props;
+        if (navigator) {
+            navigator.pop();
+        }
+    };
+
+    onChange = (event) => {
+        console.log(event.nativeEvent);
         this.setState({
+            noteContent: event.nativeEvent.text,
             height: event.nativeEvent.contentSize.height
         });
     };
 
-    onContentSizeChange(params) {
-        // console.log(params)
+    onContentSizeChange = (event) => {
+        this.setState({
+            height: event.nativeEvent.contentSize.height
+        });
     }
 }
 
@@ -89,12 +104,15 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         marginRight: 20,
         height: 35,
+        fontSize: 18,
+        fontWeight: '600'
     },
     noteDetailContent: {
-        backgroundColor: '#ffde00',
+        backgroundColor: 'white',
         marginLeft: 20,
         marginRight: 20,
         lineHeight: 20,
+        fontSize: 16
     }
 });
 
