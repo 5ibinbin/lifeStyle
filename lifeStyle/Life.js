@@ -47,6 +47,11 @@ class Life extends Component {
         });
     }
 
+    componentWillReceiveProps(nextProps){
+        console.log('componentWillReceiveProps');
+        this.getNoteData();
+    };
+
     render() {
         return (
             <View style={styles.container}>
