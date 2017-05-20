@@ -9,9 +9,12 @@ import {
     Image,
     TextInput,
     Modal,
-    TouchableOpacity
+    TouchableOpacity,
+    Dimensions,
+    ListView
 } from 'react-native';
 import Header from '../component/Header';
+import LongLine from '../component/LongLine';
 import Util from '../utils/Util';
 import Global from '../utils/Global';
 import NetUtil from '../utils/NetUtil';
@@ -21,18 +24,19 @@ import JsonUtil from '../utils/JsonUtil';
 class AddNote extends Component {
     constructor(props) {
         super(props);
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
-            username:'',
+            username: '',
             title: '',
             subTitle: '',
             noteTitle: '',
-            notebook:'',
+            notebook: '',
             noteContent: '',
             height: 30,
             animationType: 'slide',
             modalVisible: false,
             transparent: false,
-            notebooks:[],
+            notebooks: ds,
         }
     }
 
@@ -40,7 +44,7 @@ class AddNote extends Component {
         this.setState({
             title: '新增笔记',
             subTitle: '完成',
-            notebook:'我的第一个笔记本'
+            notebook: '我的第一个笔记本'
         });
         StorageUtil.get('username').then((username) => {
             this.setState({
@@ -54,14 +58,25 @@ class AddNote extends Component {
         return (
             <View style={styles.container}>
                 <Modal
+                    style={{backgroundColor: 'white'}}
                     animationType={this.state.animationType}
                     transparent={this.state.transparent}
                     visible={this.state.modalVisible}>
-                    <Header
-                        title={this.state.title}
-                        subTitle={this.state.subTitle}
-                        backState={'false'}
-                        onPressRight={() => this._hideNoteModal()}/>
+                    <View style={{backgroundColor: 'white'}}>
+                        <Header
+                            title={this.state.notebook}
+                            subTitle={this.state.subTitle}
+                            backState={'false'}
+                            onPressRight={() => this._hideNoteModal()}/>
+                        <View
+                            style={{flexDirection: 'row', height: 30, justifyContent: 'center', alignItems: 'center'}}>
+                            <Text style={{fontSize: 18, fontWeight: 'bold'}}>{'所有笔记'}</Text>
+                        </View>
+                        <ListView
+                            dataSource={this.state.notebooks}
+                            renderRow={this.renderNoteBookItem.bind(this)}/>
+                        <LongLine/>
+                    </View>
                 </Modal>
                 <Header
                     title={this.state.title}
@@ -97,6 +112,27 @@ class AddNote extends Component {
         )
     }
 
+    renderNoteBookItem(notebook) {
+        console.log('116');
+        console.log(notebook);
+        return (
+            <TouchableOpacity onPress={() => this._chooseNoteBook(notebook)}>
+                <View style={styles.notebookItem}>
+                    <LongLine/>
+                    <View style={styles.notebookItemContent}>
+                        <View style={styles.notebookItemContentLeft}>
+                            <Text style={styles.notebookItemContentTitle}>{notebook.notebook}</Text>
+                            <Text style={styles.notebookItemContentDate}>{notebook.createdAt.substring(0, 10)}</Text>
+                        </View>
+                        <View style={styles.notebookItemRight}>
+                            <Image source={require('../img/check-radio.png')}/>
+                        </View>
+                    </View>
+                </View>
+            </TouchableOpacity>
+        )
+    };
+
     _goBack = () => {
         const {navigator} = this.props;
         if (navigator) {
@@ -111,7 +147,7 @@ class AddNote extends Component {
         let noteContent = this.state.noteContent;
         let notebook = this.state.notebook;
         let params = {
-            author:username,
+            author: username,
             title: noteTitle,
             content: noteContent,
             notebook: notebook
@@ -126,7 +162,7 @@ class AddNote extends Component {
             return;
         }
         NetUtil.postJson(url, params, function (response) {
-            if (response.hasOwnProperty('objectId')){
+            if (response.hasOwnProperty('objectId')) {
                 if (navigator) {
                     navigator.pop();
                 }
@@ -147,7 +183,7 @@ class AddNote extends Component {
         });
     };
 
-    _getMyNoteBook = ()=> {
+    _getMyNoteBook = () => {
         let _this = this;
         let username = this.state.username;
         let params = {
@@ -157,7 +193,7 @@ class AddNote extends Component {
         NetUtil.get(url, function (response) {
             console.log(response);
             _this.setState({
-                notebooks:response.results
+                notebooks: _this.state.notebooks.cloneWithRows(response.results)
             });
         });
     };
@@ -172,7 +208,14 @@ class AddNote extends Component {
         this.setState({
             modalVisible: false
         })
-    }
+    };
+
+    _chooseNoteBook = (notebook) => {
+        console.log(notebook.notebook);
+        this.setState({
+            notebook: notebook.notebook
+        })
+    };
 }
 
 const styles = StyleSheet.create({
@@ -211,6 +254,36 @@ const styles = StyleSheet.create({
         paddingRight: 25,
         fontSize: 16,
         color: 'black'
+    },
+    notebookItem: {
+        flexDirection: 'column',
+        height: 51
+    },
+    notebookItemContent: {
+        flexDirection: 'row',
+        height: 50
+    },
+    notebookItemContentLeft: {
+        flexDirection: 'column',
+        flex: 4,
+        paddingLeft: 20
+    },
+    notebookItemContentTitle: {
+        fontSize: 16,
+        color: 'black',
+        marginTop: 8,
+        marginBottom: 5
+    },
+    notebookItemContentDate: {
+        fontSize: 14,
+        color: '#ffde00',
+        marginTop: 1,
+        marginBottom: 5
+    },
+    notebookItemRight: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 });
 
