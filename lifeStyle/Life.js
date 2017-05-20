@@ -98,7 +98,7 @@ class Life extends Component {
         let where = {
             "author": username
         };
-        let url = Global.NOTES + JsonUtil.jsonToStr(where);
+        let url = Global.NOTES + JsonUtil.jsonToStr(where) + '&order=updatedAt';
         NetUtil.get(url, function (response) {
             console.log(response);
             _this.setState({
@@ -118,7 +118,8 @@ class Life extends Component {
         let params = {
             "author": username
         };
-        let url = Global.NOTES + JsonUtil.jsonToStr(params);
+        let url = Global.NOTES + JsonUtil.jsonToStr(params) + '&order=-updatedAt';
+        console.log(url);
         NetUtil.get(url, function (response) {
             console.log(response);
             _this.setState({
@@ -222,9 +223,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
     },
     addImg: {
-        // right: 40,
-        // bottom: 40,
-        // position: 'absolute',
         height: 50,
         width: 50
     }

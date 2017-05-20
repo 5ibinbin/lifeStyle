@@ -75,7 +75,7 @@ class NoteDetail extends Component {
     _updateNote = () => {
         let _this = this;
         const {navigator} = this.props;
-        let url = Global.NoteUpdate + _this.state.noteDetail.objectId;
+        let url = Global.NOTEUPDATE + _this.state.noteDetail.objectId;
         let params = {
             "title":_this.state.noteTitle,
             "content":_this.state.noteContent

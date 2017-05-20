@@ -10,6 +10,8 @@ var GLOBAL = {
     LOGIN: API_ADDRESS + '/login?',
     REGISTER: API_ADDRESS + '/users',
     NOTES:API_ADDRESS + '/classes/note?where=',
-    NoteUpdate: API_ADDRESS + '/classes/note/'
+    ADDNOTE: API_ADDRESS + '/classes/note',
+    NOTEBOOK:API_ADDRESS + '/classes/notebook?where=',
+    NOTEUPDATE: API_ADDRESS + '/classes/note/'
 };
 export default GLOBAL;

@@ -13,26 +13,40 @@ import {
 } from 'react-native';
 import Header from '../component/Header';
 import Util from '../utils/Util';
+import Global from '../utils/Global';
+import NetUtil from '../utils/NetUtil';
+import StorageUtil from '../utils/StorageUtil';
+import JsonUtil from '../utils/JsonUtil';
 
 class AddNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            username:'',
             title: '',
             subTitle: '',
             noteTitle: '',
+            notebook:'',
             noteContent: '',
             height: 30,
             animationType: 'slide',
             modalVisible: false,
             transparent: false,
+            notebooks:[],
         }
     }
 
     componentDidMount() {
         this.setState({
             title: '新增笔记',
-            subTitle: '完成'
+            subTitle: '完成',
+            notebook:'我的第一个笔记本'
+        });
+        StorageUtil.get('username').then((username) => {
+            this.setState({
+                username: username
+            });
+            this._getMyNoteBook();
         });
     }
 
@@ -46,12 +60,8 @@ class AddNote extends Component {
                     <Header
                         title={this.state.title}
                         subTitle={this.state.subTitle}
-                        backState={'true'}
-                        onPress={() => this._goBack()}
-                        onPressRight={() => this._completeNote()}/>
-                    <TouchableOpacity onPress={() => this._hideNoteModal()}>
-                        <Text style={{fontSize:20}}>{'关闭modal'}</Text>
-                    </TouchableOpacity>
+                        backState={'false'}
+                        onPressRight={() => this._hideNoteModal()}/>
                 </Modal>
                 <Header
                     title={this.state.title}
@@ -62,7 +72,7 @@ class AddNote extends Component {
                 <TouchableOpacity onPress={() => this._showNoteModal()}>
                     <View style={styles.note}>
                         <Image style={styles.noteImg} source={require('../img/noteflag.png')}/>
-                        <Text style={styles.noteType}>{'我的第一个笔记本'}</Text>
+                        <Text style={styles.noteType}>{this.state.notebook}</Text>
                     </View>
                 </TouchableOpacity>
                 <TextInput
@@ -96,8 +106,17 @@ class AddNote extends Component {
 
     _completeNote = () => {
         const {navigator} = this.props;
+        let username = this.state.username;
         let noteTitle = this.state.noteTitle;
         let noteContent = this.state.noteContent;
+        let notebook = this.state.notebook;
+        let params = {
+            author:username,
+            title: noteTitle,
+            content: noteContent,
+            notebook: notebook
+        };
+        let url = Global.ADDNOTE;
         if (Util.isEmpty(noteTitle)) {
             Util.showToast('请输入笔记标题');
             return;
@@ -106,9 +125,13 @@ class AddNote extends Component {
             Util.showToast('请输入笔记内容');
             return;
         }
-        if (navigator) {
-            navigator.pop();
-        }
+        NetUtil.postJson(url, params, function (response) {
+            if (response.hasOwnProperty('objectId')){
+                if (navigator) {
+                    navigator.pop();
+                }
+            }
+        });
     };
 
     _onChange = (event) => {
@@ -123,11 +146,28 @@ class AddNote extends Component {
             height: event.nativeEvent.contentSize.height
         });
     };
+
+    _getMyNoteBook = ()=> {
+        let _this = this;
+        let username = this.state.username;
+        let params = {
+            "author": username
+        };
+        let url = Global.NOTEBOOK + JsonUtil.jsonToStr(params);
+        NetUtil.get(url, function (response) {
+            console.log(response);
+            _this.setState({
+                notebooks:response.results
+            });
+        });
+    };
+
     _showNoteModal = () => {
         this.setState({
             modalVisible: true,
         });
     };
+
     _hideNoteModal = () => {
         this.setState({
             modalVisible: false
