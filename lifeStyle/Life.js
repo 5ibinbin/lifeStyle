@@ -108,7 +108,6 @@ class Life extends Component {
             PullRefresh.onRefreshEnd();
         });
     }
-
     /*
      * 获取列表数据
      * */
@@ -119,9 +118,7 @@ class Life extends Component {
             "author": username
         };
         let url = Global.NOTES + JsonUtil.jsonToStr(params) + '&order=-updatedAt';
-        console.log(url);
         NetUtil.get(url, function (response) {
-            console.log(response);
             _this.setState({
                 dataSource: _this.state.dataSource.cloneWithRows(response.results),
                 load: true

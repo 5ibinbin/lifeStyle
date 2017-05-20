@@ -37,6 +37,8 @@ class AddNote extends Component {
             modalVisible: false,
             transparent: false,
             notebooks: ds,
+            notePosition: 0,
+            noteArray: []
         }
     }
 
@@ -44,15 +46,23 @@ class AddNote extends Component {
         this.setState({
             title: '新增笔记',
             subTitle: '完成',
-            notebook: '我的第一个笔记本'
+            notebook: '我的第一个笔记本',
+            notePosition: 0
         });
         StorageUtil.get('username').then((username) => {
             this.setState({
                 username: username
             });
-            this._getMyNoteBook();
         });
     }
+
+    componentWillReceiveProps(nextProps) {
+        console.log('componentWillReceiveProps');
+        console.log(nextProps);
+        // this.setState({
+        //     notebooks:this.state.notebooks.cloneWithRows(nextProps)
+        // })
+    };
 
     render() {
         return (
@@ -69,8 +79,8 @@ class AddNote extends Component {
                             backState={'false'}
                             onPressRight={() => this._hideNoteModal()}/>
                         <View
-                            style={{flexDirection: 'row', height: 30, justifyContent: 'center', alignItems: 'center'}}>
-                            <Text style={{fontSize: 18, fontWeight: 'bold'}}>{'所有笔记'}</Text>
+                            style={styles.notebookAll}>
+                            <Text style={styles.notebookAllText}>{'所有笔记'}</Text>
                         </View>
                         <ListView
                             dataSource={this.state.notebooks}
@@ -112,9 +122,9 @@ class AddNote extends Component {
         )
     }
 
-    renderNoteBookItem(notebook) {
-        console.log('116');
-        console.log(notebook);
+    renderNoteBookItem(notebook, selectId, rowId) {
+        console.log(selectId + '.....' + rowId);
+        console.log(this.state.notePosition);
         return (
             <TouchableOpacity onPress={() => this._chooseNoteBook(notebook)}>
                 <View style={styles.notebookItem}>
@@ -125,7 +135,12 @@ class AddNote extends Component {
                             <Text style={styles.notebookItemContentDate}>{notebook.createdAt.substring(0, 10)}</Text>
                         </View>
                         <View style={styles.notebookItemRight}>
-                            <Image source={require('../img/check-radio.png')}/>
+                            {
+                                this.state.notePosition == rowId ?
+                                    (<Image style={styles.notebookItemRightImage}
+                                            source={require('../img/check-radio.png')}/>) :
+                                    (<Text/>)
+                            }
                         </View>
                     </View>
                 </View>
@@ -193,7 +208,8 @@ class AddNote extends Component {
         NetUtil.get(url, function (response) {
             console.log(response);
             _this.setState({
-                notebooks: _this.state.notebooks.cloneWithRows(response.results)
+                notebooks: _this.state.notebooks.cloneWithRows(response.results),
+                noteArray: response.results
             });
         });
     };
@@ -202,6 +218,7 @@ class AddNote extends Component {
         this.setState({
             modalVisible: true,
         });
+        this._getMyNoteBook();
     };
 
     _hideNoteModal = () => {
@@ -211,10 +228,15 @@ class AddNote extends Component {
     };
 
     _chooseNoteBook = (notebook) => {
-        console.log(notebook.notebook);
-        this.setState({
-            notebook: notebook.notebook
-        })
+        let noteArray = this.state.noteArray;
+        for (let i in noteArray) {
+            if (notebook.notebook === noteArray[i].notebook) {
+                this.setState({
+                    notePosition: i,
+                    notebook: notebook.notebook
+                });
+            }
+        }
     };
 }
 
@@ -255,6 +277,16 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: 'black'
     },
+    notebookAll: {
+        flexDirection: 'row',
+        height: 30,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    notebookAllText: {
+        fontSize: 18,
+        fontWeight: 'bold'
+    },
     notebookItem: {
         flexDirection: 'column',
         height: 51
@@ -284,6 +316,10 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    notebookItemRightImage: {
+        height: 20,
+        width: 20
     }
 });
 
