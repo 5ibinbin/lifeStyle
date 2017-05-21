@@ -23,7 +23,7 @@ import NetUtil from '../utils/NetUtil';
 import StorageUtil from '../utils/StorageUtil';
 import JsonUtil from '../utils/JsonUtil';
 
-class AddNote extends Component {
+class NotebookDetail extends Component {
     constructor(props) {
         super(props);
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -123,6 +123,8 @@ class AddNote extends Component {
     }
 
     renderNoteBookItem(notebook, selectId, rowId) {
+        console.log(selectId + '.....' + rowId);
+        console.log(this.state.notePosition);
         return (
             <TouchableOpacity onPress={() => this._chooseNoteBook(notebook)}>
                 <View style={styles.notebookItem}>
@@ -346,4 +348,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default AddNote;
+export default NotebookDetail;

@@ -98,7 +98,7 @@ class Life extends Component {
         let where = {
             "author": username
         };
-        let url = Global.NOTES + JsonUtil.jsonToStr(where) + '&order=updatedAt';
+        let url = Global.NOTES + JsonUtil.jsonToStr(where) + '&order=-updatedAt';
         NetUtil.get(url, function (response) {
             console.log(response);
             _this.setState({

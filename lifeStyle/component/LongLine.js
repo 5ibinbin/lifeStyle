@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     container:{
         height: 1,
         width: Dimensions.get('window').width,
-        backgroundColor: '#f5f5f5'
+        backgroundColor: '#f5f5f5',
     }
 });
 
