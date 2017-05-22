@@ -23,14 +23,19 @@ class AddNotebook extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            notebookName: '',
+            username:'',
+            notebook: '',
             title: '新建笔记本',
             subTitle: '完成'
         }
     }
 
     componentDidMount() {
-
+        StorageUtil.get('username').then((username) => {
+            this.setState({
+                username: username
+            });
+        });
     }
 
     render() {
@@ -42,15 +47,15 @@ class AddNotebook extends Component {
                     backState={'true'}
                     onPress={() => this._goBack()}
                     onPressRight={() => this._completeNote()}/>
-                <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                <View style={styles.notebookContent}>
                     <TextInput
                         style={styles.notebookInput}
                         numberOfLines={1}
                         underlineColorAndroid={'transparent'}
                         placeholder={'请输入笔记本名称'}
                         placeholderTextColor={'#333'}
-                        value={this.state.notebookName}
-                        onChangeText={(notebookName) => this.setState({notebookName})}/>
+                        value={this.state.notebook}
+                        onChangeText={(notebook) => this.setState({notebook})}/>
                 </View>
             </View>
         )
@@ -64,18 +69,20 @@ class AddNotebook extends Component {
     };
 
     _completeNote = () => {
+        const {navigator} = this.props;
         let username = this.state.username;
-        let notebookName = this.state.notebookName;
+        let notebookName = this.state.notebook;
         let params = {
             author: username,
-            title: noteTitle,
+            notebook: notebookName,
         };
-        let url = Global.ADDNOTE;
+        let url = Global.ADDNOTEBOOK;
         if (Util.isEmpty(notebookName)) {
             Util.showToast('请输入笔记本名称');
             return;
         }
         NetUtil.postJson(url, params, function (response) {
+            console.log(response);
             if (response.hasOwnProperty('objectId')) {
                 if (navigator) {
                     navigator.pop();
@@ -89,6 +96,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white'
+    },
+    notebookContent: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     notebookInput: {
         height:40,

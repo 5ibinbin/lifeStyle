@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfd7cc41-5fc8-4666-85bf-bae171f9d1b3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lifeStyle/life/AddNotebook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lifeStyle/life/NotebookDetail.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/lifeStyle.xcodeproj/project.xcworkspace/xcuserdata/Cral-Gates.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/ios/lifeStyle.xcodeproj/project.xcworkspace/xcuserdata/Cral-Gates.xcuserdatad/UserInterfaceState.xcuserstate" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lifeStyle/Life.js" afterPath="$PROJECT_DIR$/lifeStyle/Life.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lifeStyle/component/LongLine.js" afterPath="$PROJECT_DIR$/lifeStyle/component/LongLine.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lifeStyle/life/AddNote.js" afterPath="$PROJECT_DIR$/lifeStyle/life/AddNote.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lifeStyle/life/AddNotebook.js" afterPath="$PROJECT_DIR$/lifeStyle/life/AddNotebook.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lifeStyle/life/NotebookDetail.js" afterPath="$PROJECT_DIR$/lifeStyle/life/NotebookDetail.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lifeStyle/utils/Global.js" afterPath="$PROJECT_DIR$/lifeStyle/utils/Global.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,8 +25,8 @@
       <file leaf-file-name="Life.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lifeStyle/Life.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2490">
-              <caret line="166" column="13" lean-forward="false" selection-start-line="166" selection-start-column="13" selection-end-line="166" selection-end-column="13" />
+            <state relative-caret-position="202">
+              <caret line="46" column="11" lean-forward="true" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -36,18 +35,8 @@
       <file leaf-file-name="AddNote.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lifeStyle/life/AddNote.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="128" column="31" lean-forward="true" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddNotebook.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lifeStyle/life/AddNotebook.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+            <state relative-caret-position="156">
+              <caret line="110" column="21" lean-forward="true" selection-start-line="110" selection-start-column="21" selection-end-line="110" selection-end-column="21" />
               <folding>
                 <element signature="e#47#86#0" expanded="true" />
               </folding>
@@ -55,11 +44,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NotebookDetail.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Global.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lifeStyle/utils/Global.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NotebookDetail.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lifeStyle/life/NotebookDetail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4162">
-              <caret line="341" column="29" lean-forward="true" selection-start-line="341" selection-start-column="29" selection-end-line="341" selection-end-column="29" />
+            <state relative-caret-position="190">
+              <caret line="124" column="23" lean-forward="true" selection-start-line="124" selection-start-column="23" selection-end-line="124" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -120,13 +119,13 @@
         <option value="$PROJECT_DIR$/lifeStyle/component/Header.js" />
         <option value="$PROJECT_DIR$/lifeStyle/login/Login.js" />
         <option value="$PROJECT_DIR$/lifeStyle/utils/NetUtil.js" />
-        <option value="$PROJECT_DIR$/lifeStyle/utils/Global.js" />
         <option value="$PROJECT_DIR$/lifeStyle/life/NoteDetail.js" />
-        <option value="$PROJECT_DIR$/lifeStyle/Life.js" />
         <option value="$PROJECT_DIR$/lifeStyle/component/LongLine.js" />
-        <option value="$PROJECT_DIR$/lifeStyle/life/NotebookDetail.js" />
-        <option value="$PROJECT_DIR$/lifeStyle/life/AddNote.js" />
+        <option value="$PROJECT_DIR$/lifeStyle/Life.js" />
+        <option value="$PROJECT_DIR$/lifeStyle/utils/Global.js" />
         <option value="$PROJECT_DIR$/lifeStyle/life/AddNotebook.js" />
+        <option value="$PROJECT_DIR$/lifeStyle/life/AddNote.js" />
+        <option value="$PROJECT_DIR$/lifeStyle/life/NotebookDetail.js" />
       </list>
     </option>
   </component>
@@ -163,6 +162,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -235,14 +236,30 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lifeStyle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lifeStyle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lifeStyle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="life" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -382,11 +399,12 @@
       <workItem from="1495334729627" duration="3036000" />
       <workItem from="1495350874580" duration="162000" />
       <workItem from="1495375098404" duration="481000" />
+      <workItem from="1495411455352" duration="3055000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111837000" />
+    <option name="totallyTimeSpent" value="114892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -396,8 +414,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29863015" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -700,14 +718,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lifeStyle/utils/Global.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lifeStyle/Home.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -752,14 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lifeStyle/Life.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2490">
-          <caret line="166" column="13" lean-forward="false" selection-start-line="166" selection-start-column="13" selection-end-line="166" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lifeStyle/component/LongLine.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -770,29 +772,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lifeStyle/life/AddNote.js">
+    <entry file="file://$PROJECT_DIR$/lifeStyle/Life.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="128" column="31" lean-forward="true" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lifeStyle/life/NotebookDetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4162">
-          <caret line="341" column="29" lean-forward="true" selection-start-line="341" selection-start-column="29" selection-end-line="341" selection-end-column="29" />
+        <state relative-caret-position="202">
+          <caret line="46" column="11" lean-forward="true" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lifeStyle/life/AddNotebook.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        <state relative-caret-position="387">
+          <caret line="91" column="6" lean-forward="true" selection-start-line="91" selection-start-column="6" selection-end-line="91" selection-end-column="6" />
           <folding>
             <element signature="e#47#86#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifeStyle/utils/Global.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifeStyle/life/AddNote.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="110" column="21" lean-forward="true" selection-start-line="110" selection-start-column="21" selection-end-line="110" selection-end-column="21" />
+          <folding>
+            <element signature="e#47#86#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifeStyle/life/NotebookDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="124" column="23" lean-forward="true" selection-start-line="124" selection-start-column="23" selection-end-line="124" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>

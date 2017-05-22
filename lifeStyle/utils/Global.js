@@ -11,6 +11,7 @@ var GLOBAL = {
     REGISTER: API_ADDRESS + '/users',
     NOTES:API_ADDRESS + '/classes/note?where=',
     ADDNOTE: API_ADDRESS + '/classes/note',
+    ADDNOTEBOOK: API_ADDRESS + '/classes/notebook',
     NOTEBOOK:API_ADDRESS + '/classes/notebook?where=',
     NOTEUPDATE: API_ADDRESS + '/classes/note/'
 };

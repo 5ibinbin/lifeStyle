@@ -35,9 +35,6 @@ class NotebookDetail extends Component {
             notebook: '',
             noteContent: '',
             height: 30,
-            animationType: 'slide',
-            modalVisible: false,
-            transparent: false,
             notebooks: ds,
             notePosition: 0,
             noteArray: []
@@ -48,83 +45,47 @@ class NotebookDetail extends Component {
         this.setState({
             title: '新增笔记',
             subTitle: '完成',
-            notebook: '我的第一个笔记本',
-            notePosition: 0
+            notebook: this.props.notebook,
+            notePosition: this.props.notePosition
         });
         StorageUtil.get('username').then((username) => {
             this.setState({
                 username: username
             });
+            this._getMyNoteBook();
         });
+        this._chooseNoteBook(this.state.noteArray);
     }
 
     componentWillReceiveProps(nextProps) {
         console.log('componentWillReceiveProps');
-        console.log(nextProps);
+        this._getMyNoteBook();
     };
 
     render() {
         return (
             <View style={styles.container}>
-                <Modal
-                    animationType={this.state.animationType}
-                    transparent={this.state.transparent}
-                    visible={this.state.modalVisible}>
-                    <View style={styles.notebookModal}>
-                        <Header
-                            title={this.state.notebook}
-                            subTitle={this.state.subTitle}
-                            backState={'false'}
-                            onPressRight={() => this._hideNoteModal()}/>
-                        <View
-                            style={styles.notebookAll}>
-                            <Text style={styles.notebookAllText}>{'所有笔记'}</Text>
-                        </View>
-                        <ListView
-                            dataSource={this.state.notebooks}
-                            renderRow={this.renderNoteBookItem.bind(this)}/>
-                        <TouchableOpacity onPress={()=> this._goAddNotebook()}>
-                            <Text style={styles.notebookAdd}>{'新建笔记本'}</Text>
-                        </TouchableOpacity>
-                    </View>
-                </Modal>
                 <Header
-                    title={this.state.title}
+                    title={this.state.notebook}
                     subTitle={this.state.subTitle}
                     backState={'true'}
                     onPress={() => this._goBack()}
                     onPressRight={() => this._completeNote()}/>
-                <TouchableOpacity onPress={() => this._showNoteModal()}>
-                    <View style={styles.note}>
-                        <Image style={styles.noteImg} source={require('../img/noteflag.png')}/>
-                        <Text style={styles.noteType}>{this.state.notebook}</Text>
-                    </View>
+                <View
+                    style={styles.notebookAll}>
+                    <Text style={styles.notebookAllText}>{'所有笔记'}</Text>
+                </View>
+                <ListView
+                    dataSource={this.state.notebooks}
+                    renderRow={this.renderNoteBookItem.bind(this)}/>
+                <TouchableOpacity onPress={() => this._goAddNotebook()}>
+                    <Text style={styles.notebookAdd}>{'新建笔记本'}</Text>
                 </TouchableOpacity>
-                <TextInput
-                    style={styles.noteTitle}
-                    numberOfLines={1}
-                    secureTextEntry={false}
-                    underlineColorAndroid={'transparent'}
-                    value={this.state.noteTitle}
-                    placeholder={'标题'}
-                    placeholderTextColor={'#999'}
-                    onChangeText={(noteTitle) => this.setState({noteTitle})}/>
-                <TextInput
-                    style={[styles.noteContent, {height: this.state.height}]}
-                    placeholder={'内容'}
-                    multiline={true}
-                    value={this.state.noteContent}
-                    underlineColorAndroid={'transparent'}
-                    onChange={() => this._onChange.bind(this)}
-                    onContentSizeChange={(event) => this._onContentSizeChange(event)}
-                    onChangeText={(noteContent) => this.setState({noteContent})}/>
             </View>
         )
     }
 
     renderNoteBookItem(notebook, selectId, rowId) {
-        console.log(selectId + '.....' + rowId);
-        console.log(this.state.notePosition);
         return (
             <TouchableOpacity onPress={() => this._chooseNoteBook(notebook)}>
                 <View style={styles.notebookItem}>
@@ -160,45 +121,13 @@ class NotebookDetail extends Component {
 
     _completeNote = () => {
         const {navigator} = this.props;
-        let username = this.state.username;
-        let noteTitle = this.state.noteTitle;
-        let noteContent = this.state.noteContent;
         let notebook = this.state.notebook;
-        let params = {
-            author: username,
-            title: noteTitle,
-            content: noteContent,
-            notebook: notebook
-        };
-        let url = Global.ADDNOTE;
-        if (Util.isEmpty(noteTitle)) {
-            Util.showToast('请输入笔记标题');
-            return;
+        let notePosition = this.state.notePosition;
+        this.props.getNotebook(notebook);
+        this.props.getNotebookPosition(notePosition);
+        if (navigator) {
+            navigator.pop();
         }
-        if (Util.isEmpty(noteContent)) {
-            Util.showToast('请输入笔记内容');
-            return;
-        }
-        NetUtil.postJson(url, params, function (response) {
-            if (response.hasOwnProperty('objectId')) {
-                if (navigator) {
-                    navigator.pop();
-                }
-            }
-        });
-    };
-
-    _onChange = (event) => {
-        this.setState({
-            noteContent: event.nativeEvent.text,
-            height: event.nativeEvent.contentSize.height
-        });
-    };
-
-    _onContentSizeChange = (event) => {
-        this.setState({
-            height: event.nativeEvent.contentSize.height
-        });
     };
 
     _getMyNoteBook = () => {
@@ -215,29 +144,15 @@ class NotebookDetail extends Component {
                 noteArray: response.results
             });
         });
+        console.log(this.state.noteArray);
     };
 
     _goAddNotebook = () => {
         this.props.navigator.push({
             name: 'AddNotebook',
             component: AddNotebook,
-            params: {
-                title: ''
-            }
+            params: {}
         });
-    };
-
-    _showNoteModal = () => {
-        this.setState({
-            modalVisible: true,
-        });
-        this._getMyNoteBook();
-    };
-
-    _hideNoteModal = () => {
-        this.setState({
-            modalVisible: false
-        })
     };
 
     _chooseNoteBook = (notebook) => {

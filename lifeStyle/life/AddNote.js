@@ -17,6 +17,7 @@ import Header from '../component/Header';
 import LongLine from '../component/LongLine';
 import TextButton from '../component/TextButton';
 import AddNotebook from '../life/AddNotebook';
+import NotebookDetail from '../life/NotebookDetail';
 import Util from '../utils/Util';
 import Global from '../utils/Global';
 import NetUtil from '../utils/NetUtil';
@@ -35,9 +36,6 @@ class AddNote extends Component {
             notebook: '',
             noteContent: '',
             height: 30,
-            animationType: 'slide',
-            modalVisible: false,
-            transparent: false,
             notebooks: ds,
             notePosition: 0,
             noteArray: []
@@ -60,41 +58,18 @@ class AddNote extends Component {
 
     componentWillReceiveProps(nextProps) {
         console.log('componentWillReceiveProps');
-        console.log(nextProps);
     };
 
     render() {
         return (
             <View style={styles.container}>
-                <Modal
-                    animationType={this.state.animationType}
-                    transparent={this.state.transparent}
-                    visible={this.state.modalVisible}>
-                    <View style={styles.notebookModal}>
-                        <Header
-                            title={this.state.notebook}
-                            subTitle={this.state.subTitle}
-                            backState={'false'}
-                            onPressRight={() => this._hideNoteModal()}/>
-                        <View
-                            style={styles.notebookAll}>
-                            <Text style={styles.notebookAllText}>{'所有笔记'}</Text>
-                        </View>
-                        <ListView
-                            dataSource={this.state.notebooks}
-                            renderRow={this.renderNoteBookItem.bind(this)}/>
-                        <TouchableOpacity onPress={()=> this._goAddNotebook()}>
-                            <Text style={styles.notebookAdd}>{'新建笔记本'}</Text>
-                        </TouchableOpacity>
-                    </View>
-                </Modal>
                 <Header
                     title={this.state.title}
                     subTitle={this.state.subTitle}
                     backState={'true'}
                     onPress={() => this._goBack()}
                     onPressRight={() => this._completeNote()}/>
-                <TouchableOpacity onPress={() => this._showNoteModal()}>
+                <TouchableOpacity onPress={() => this._goNotebookDetail()}>
                     <View style={styles.note}>
                         <Image style={styles.noteImg} source={require('../img/noteflag.png')}/>
                         <Text style={styles.noteType}>{this.state.notebook}</Text>
@@ -122,38 +97,32 @@ class AddNote extends Component {
         )
     }
 
-    renderNoteBookItem(notebook, selectId, rowId) {
-        return (
-            <TouchableOpacity onPress={() => this._chooseNoteBook(notebook)}>
-                <View style={styles.notebookItem}>
-                    <LongLine/>
-                    <View style={styles.notebookItemContent}>
-                        <View style={styles.notebookItemContentLeft}>
-                            <Text style={styles.notebookItemContentTitle}>{notebook.notebook}</Text>
-                            <Text style={styles.notebookItemContentDate}>{notebook.createdAt.substring(0, 10)}</Text>
-                        </View>
-                        <View style={styles.notebookItemRight}>
-                            {
-                                this.state.notePosition == rowId ?
-                                    (<Image style={styles.notebookItemRightImage}
-                                            source={require('../img/check-radio.png')}/>) :
-                                    (<Text/>)
-                            }
-                        </View>
-                    </View>
-                    {
-                        this.state.noteArray == rowId ? (<LongLine/>) : (<Text/>)
-                    }
-                </View>
-            </TouchableOpacity>
-        )
-    };
-
     _goBack = () => {
         const {navigator} = this.props;
         if (navigator) {
             navigator.pop();
         }
+    };
+
+    _goNotebookDetail = ()=> {
+        this.props.navigator.push({
+            name: 'NotebookDetail',
+            component: NotebookDetail,
+            params: {
+                notebook:this.state.notebook,
+                notePosition: this.state.notePosition,
+                getNotebookPosition: (notebookPosition) => {
+                    this.setState({
+                        notePosition: notebookPosition
+                    })
+                },
+                getNotebook:(notebook) => {
+                    this.setState({
+                        notebook:notebook
+                    })
+                }
+            }
+        });
     };
 
     _completeNote = () => {
@@ -215,40 +184,18 @@ class AddNote extends Component {
         });
     };
 
-    _goAddNotebook = () => {
-        this.props.navigator.push({
-            name: 'AddNotebook',
-            component: AddNotebook,
-            params: {
-                title: ''
-            }
-        });
-    };
 
-    _showNoteModal = () => {
-        this.setState({
-            modalVisible: true,
-        });
-        this._getMyNoteBook();
-    };
-
-    _hideNoteModal = () => {
-        this.setState({
-            modalVisible: false
-        })
-    };
-
-    _chooseNoteBook = (notebook) => {
-        let noteArray = this.state.noteArray;
-        for (let i in noteArray) {
-            if (notebook.notebook === noteArray[i].notebook) {
-                this.setState({
-                    notePosition: i,
-                    notebook: notebook.notebook
-                });
-            }
-        }
-    };
+    // _chooseNoteBook = (notebook) => {
+    //     let noteArray = this.state.noteArray;
+    //     for (let i in noteArray) {
+    //         if (notebook.notebook === noteArray[i].notebook) {
+    //             this.setState({
+    //                 notePosition: i,
+    //                 notebook: notebook.notebook
+    //             });
+    //         }
+    //     }
+    // };
 }
 
 const styles = StyleSheet.create({
