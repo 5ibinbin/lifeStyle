@@ -75,6 +75,7 @@ class AddNote extends Component {
                         <Text style={styles.noteType}>{this.state.notebook}</Text>
                     </View>
                 </TouchableOpacity>
+                <LongLine/>
                 <TextInput
                     style={styles.noteTitle}
                     numberOfLines={1}

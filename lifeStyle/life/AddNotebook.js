@@ -53,7 +53,7 @@ class AddNotebook extends Component {
                         numberOfLines={1}
                         underlineColorAndroid={'transparent'}
                         placeholder={'请输入笔记本名称'}
-                        placeholderTextColor={'#333'}
+                        placeholderTextColor={'#ffde00'}
                         value={this.state.notebook}
                         onChangeText={(notebook) => this.setState({notebook})}/>
                 </View>

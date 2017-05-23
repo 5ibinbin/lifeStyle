@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: '#666',
         margin: 2,
-        maxHeight: 48,
+        maxHeight: 46,
         lineHeight: 14
     },
     addNote: {
