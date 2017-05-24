@@ -6,7 +6,8 @@ import {
     StyleSheet,
     Text,
     View,
-    TextInput
+    TextInput,
+    ScrollView
 } from 'react-native';
 import Header from '../component/Header';
 import NetUtil from '../utils/NetUtil';
@@ -45,22 +46,24 @@ class NoteDetail extends Component {
                     onPress={() => this._goBack()}
                     subTitle={this.state.subTitle}
                     onPressRight={() => this._updateNote()}/>
-                <TextInput
-                    style={styles.noteDetailTitle}
-                    numberOfLines={1}
-                    secureTextEntry={false}
-                    underlineColorAndroid={'transparent'}
-                    value={this.state.noteTitle}
-                    onChangeText={(noteTitle) => this.setState({noteTitle})}/>
-                <TextInput
-                    style={[styles.noteDetailContent, {height: this.state.height}]}
-                    multiline={true}
-                    secureTextEntry={false}
-                    underlineColorAndroid={'transparent'}
-                    value={this.state.noteContent}
-                    onChangeText={(noteContent) => this.setState({noteContent})}
-                    onChange={() => this.onChange.bind(this)}
-                    onContentSizeChange={(event) => this.onContentSizeChange(event)}/>
+                <ScrollView>
+                    <TextInput
+                        style={styles.noteDetailTitle}
+                        numberOfLines={1}
+                        secureTextEntry={false}
+                        underlineColorAndroid={'transparent'}
+                        value={this.state.noteTitle}
+                        onChangeText={(noteTitle) => this.setState({noteTitle})}/>
+                    <TextInput
+                        style={[styles.noteDetailContent, {height: this.state.height}]}
+                        multiline={true}
+                        secureTextEntry={false}
+                        underlineColorAndroid={'transparent'}
+                        value={this.state.noteContent}
+                        onChangeText={(noteContent) => this.setState({noteContent})}
+                        onChange={() => this.onChange.bind(this)}
+                        onContentSizeChange={(event) => this.onContentSizeChange(event)}/>
+                </ScrollView>
             </View>
         )
     }
@@ -108,13 +111,13 @@ class NoteDetail extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        // flex: 1,
         backgroundColor: '#f5f5f5'
     },
     noteDetailTitle: {
         backgroundColor: 'white',
         marginTop: 10,
-        marginBottom: 10,
+        marginBottom: 2,
         marginLeft: 20,
         marginRight: 20,
         height: 35,
@@ -124,7 +127,7 @@ const styles = StyleSheet.create({
     noteDetailContent: {
         backgroundColor: 'white',
         marginLeft: 20,
-        marginRight: 20,
+        marginRight: 10,
         lineHeight: 20,
         fontSize: 16
     }

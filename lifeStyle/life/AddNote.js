@@ -11,7 +11,8 @@ import {
     Modal,
     TouchableOpacity,
     Dimensions,
-    ListView
+    ListView,
+    ScrollView
 } from 'react-native';
 import Header from '../component/Header';
 import LongLine from '../component/LongLine';
@@ -69,31 +70,33 @@ class AddNote extends Component {
                     backState={'true'}
                     onPress={() => this._goBack()}
                     onPressRight={() => this._completeNote()}/>
-                <TouchableOpacity onPress={() => this._goNotebookDetail()}>
-                    <View style={styles.note}>
-                        <Image style={styles.noteImg} source={require('../img/noteflag.png')}/>
-                        <Text style={styles.noteType}>{this.state.notebook}</Text>
-                    </View>
-                </TouchableOpacity>
-                <LongLine/>
-                <TextInput
-                    style={styles.noteTitle}
-                    numberOfLines={1}
-                    secureTextEntry={false}
-                    underlineColorAndroid={'transparent'}
-                    value={this.state.noteTitle}
-                    placeholder={'标题'}
-                    placeholderTextColor={'#999'}
-                    onChangeText={(noteTitle) => this.setState({noteTitle})}/>
-                <TextInput
-                    style={[styles.noteContent, {height: this.state.height}]}
-                    placeholder={'内容'}
-                    multiline={true}
-                    value={this.state.noteContent}
-                    underlineColorAndroid={'transparent'}
-                    onChange={() => this._onChange.bind(this)}
-                    onContentSizeChange={(event) => this._onContentSizeChange(event)}
-                    onChangeText={(noteContent) => this.setState({noteContent})}/>
+                <ScrollView >
+                    <TouchableOpacity onPress={() => this._goNotebookDetail()}>
+                        <View style={styles.note}>
+                            <Image style={styles.noteImg} source={require('../img/noteflag.png')}/>
+                            <Text style={styles.noteType}>{this.state.notebook}</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <LongLine/>
+                    <TextInput
+                        style={styles.noteTitle}
+                        numberOfLines={1}
+                        secureTextEntry={false}
+                        underlineColorAndroid={'transparent'}
+                        value={this.state.noteTitle}
+                        placeholder={'标题'}
+                        placeholderTextColor={'#999'}
+                        onChangeText={(noteTitle) => this.setState({noteTitle})}/>
+                    <TextInput
+                        style={[styles.noteContent, {height: this.state.height}]}
+                        placeholder={'内容'}
+                        multiline={true}
+                        value={this.state.noteContent}
+                        underlineColorAndroid={'transparent'}
+                        onChange={() => this._onChange.bind(this)}
+                        onContentSizeChange={(event) => this._onContentSizeChange(event)}
+                        onChangeText={(noteContent) => this.setState({noteContent})}/>
+                </ScrollView>
             </View>
         )
     }
@@ -184,24 +187,11 @@ class AddNote extends Component {
             });
         });
     };
-
-
-    // _chooseNoteBook = (notebook) => {
-    //     let noteArray = this.state.noteArray;
-    //     for (let i in noteArray) {
-    //         if (notebook.notebook === noteArray[i].notebook) {
-    //             this.setState({
-    //                 notePosition: i,
-    //                 notebook: notebook.notebook
-    //             });
-    //         }
-    //     }
-    // };
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        // flex: 1,
         backgroundColor: 'white'
     },
     note: {
@@ -232,7 +222,7 @@ const styles = StyleSheet.create({
     noteContent: {
         backgroundColor: 'white',
         paddingLeft: 25,
-        paddingRight: 25,
+        paddingRight: 20,
         fontSize: 16,
         color: 'black'
     },

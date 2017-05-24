@@ -1,4 +1,7 @@
 /**
+ * Created by Cral-Gates on 2017/5/24.
+ */
+/**
  * Created by Cral-Gates on 2017/4/27.
  */
 
@@ -12,30 +15,24 @@ import {
     Image,
     TouchableOpacity
 } from 'react-native';
-import Header from "./component/Header";
-import LongLine from "./component/LongLine";
-import Global from "./utils/Global";
-import NetUtil from "./utils/NetUtil";
-import JsonUtil from "./utils/JsonUtil";
-import StorageUtil from "./utils/StorageUtil";
-import Util from './utils/StorageUtil';
-import Search from './component/Search';
-import NoteDetail from './life/NoteDetail';
-import AddNote from './life/AddNote';
-
+import Header from "../component/Header";
+import LongLine from "../component/LongLine";
+import Global from "../utils/Global";
+import NetUtil from "../utils/NetUtil";
+import JsonUtil from "../utils/JsonUtil";
+import StorageUtil from "../utils/StorageUtil";
+import Util from '../utils/StorageUtil';
 import PullRefreshScrollView from 'react-native-pullrefresh-scrollview';
-import SwipeOut from 'react-native-swipeout';
 
-class Life extends Component {
+class MyNote extends Component {
     constructor(props) {
         super(props);
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
             username: '',
-            title: '笔记',
             dataSource: ds,
             load: false,
-            searchContent: ''
+            title: '我的笔记'
         };
     }
 
@@ -48,21 +45,13 @@ class Life extends Component {
         });
     }
 
-    componentWillReceiveProps(nextProps) {
-        console.log('componentWillReceiveProps');
-        this.getNoteData();
-    };
-
     render() {
         return (
             <View style={styles.container}>
                 <Header
                     title={this.state.title}
-                    backState={'false'}/>
-                <Search
-                    textValue={this.state.searchContent}
-                    onPress={() => this.searchNote()}/>
-                <View style={styles.line}/>
+                    backState={'true'}
+                    onPress={() => this._goBack()}/>
                 <ListView
                     contentContainerStyle={styles.listView}
                     renderScrollComponent={(props) => <PullRefreshScrollView
@@ -71,59 +60,34 @@ class Life extends Component {
                     dataSource={this.state.dataSource}
                     renderRow={this.renderNote.bind(this)}
                     enableEmptySections={true}/>
-
-                <TouchableOpacity onPress={() => this.goAddNote()}>
-                    <View style={styles.addNote}>
-                        <Image style={styles.addImg} source={require('./img/addimg.png')}/>
-                    </View>
-                </TouchableOpacity>
             </View>
         )
     }
 
     renderNote(note) {
-        var swipeOutBtn = [{
-            text: '删除',
-            backgroundColor: '#ffde00',
-            color: 'black',
-            onPress: () => this.deleteNote(note),
-        }];
         return (
-            <SwipeOut right={swipeOutBtn} autoClose={true} style={{backgroundColor:'#f5f5f5'}}>
-                <TouchableOpacity onPress={() => this.goNoteDetail(note)}>
-                    <View>
-                        <View style={styles.listViewItem}>
-                            <Text style={styles.noteTitle}>{note.title}</Text>
-                            <Text style={styles.noteContent}>{note.content}</Text>
-                            <Text style={styles.noteDate}>{note.createdAt.substring(0, 10)}</Text>
-                        </View>
-                        <LongLine/>
+            <TouchableOpacity onPress={() => this.goNoteDetail(note)}>
+                <View>
+                    <View style={styles.listViewItem}>
+                        <Text style={styles.noteTitle}>{note.title}</Text>
+                        <Text style={styles.noteContent}>{note.content}</Text>
+                        <Text style={styles.noteDate}>{note.createdAt.substring(0, 10)}</Text>
                     </View>
-                </TouchableOpacity>
-            </SwipeOut>
+                    <LongLine/>
+                </View>
+            </TouchableOpacity>
         )
     }
 
-    goNoteDetail = (note) => {
-        this.props.navigator.push({
-            name: 'NoteDetail',
-            component: NoteDetail,
-            params: {
-                noteDetail: note,
-            }
-        });
+    _goBack = () => {
+        const {navigator} = this.props;
+        if (navigator) {
+            navigator.pop();
+        }
     };
-
-    goAddNote = () => {
-        this.props.navigator.push({
-            name: 'AddNote',
-            component: AddNote,
-            params: {
-                title: ''
-            }
-        });
-    };
-
+    /*
+     * 刷新
+     * */
     onRefresh(PullRefresh) {
         let _this = this;
         let username = this.state.username;
@@ -158,37 +122,6 @@ class Life extends Component {
             });
         });
     };
-    /*
-     * 笔记搜索
-     * */
-    searchNote = () => {
-        let _this = this;
-        let username = this.state.username;
-        let title = _this.state.searchContent;
-        let params = {
-            "author": username,
-            "title": title
-        };
-        console.log(params);
-        let url = Global.NOTES + JsonUtil.jsonToStr(params);
-        NetUtil.get(url, function (response) {
-            console.log(response);
-            _this.setState({
-                dataSource: _this.state.dataSource.cloneWithRows(response.results),
-                load: true
-            });
-        });
-    };
-    /*
-     * 删除笔记
-     * */
-    deleteNote = (note) => {
-        let _this = this;
-        let url = Global.DELETENOTE + note.objectId;
-        NetUtil.delete(url, function (response) {
-            _this.getNoteData();
-        })
-    }
 }
 
 const styles = StyleSheet.create({
@@ -243,4 +176,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Life;
+export default MyNote;
