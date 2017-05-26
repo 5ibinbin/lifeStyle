@@ -32,7 +32,8 @@ class MyNote extends Component {
             username: '',
             dataSource: ds,
             load: false,
-            title: '我的笔记'
+            title: '我的笔记',
+            color:['red', 'blue', 'yellow', 'pink', 'green', 'brown', 'purple']
         };
     }
 
@@ -65,15 +66,21 @@ class MyNote extends Component {
     }
 
     renderNote(note) {
+        let randomColor = this.state.color[Math.round(Math.random()*7)];
+        console.log(randomColor);
         return (
-            <TouchableOpacity onPress={() => this.goNoteDetail(note)}>
-                <View>
+            <TouchableOpacity>
+                <View style={{width:Dimensions.get('window').width, flexDirection: 'row', marginLeft:10}}>
+                    <View style={{alignSelf:'center', width:80, alignItems:'center'}}>
+                        <View style={{width:1, backgroundColor:'#dddddd', maxHeight:33}}/>
+                        <View style={{height:30, width:30, backgroundColor:'red', borderRadius:15}}/>
+                        <View style={{width:1, maxHeight:33, backgroundColor:'#dddddd'}}/>
+                    </View>
                     <View style={styles.listViewItem}>
                         <Text style={styles.noteTitle}>{note.title}</Text>
                         <Text style={styles.noteContent}>{note.content}</Text>
                         <Text style={styles.noteDate}>{note.createdAt.substring(0, 10)}</Text>
                     </View>
-                    <LongLine/>
                 </View>
             </TouchableOpacity>
         )
@@ -94,7 +101,7 @@ class MyNote extends Component {
         let where = {
             "author": username
         };
-        let url = Global.NOTES + JsonUtil.jsonToStr(where) + '&order=-updatedAt';
+        let url = Global.NOTES + JsonUtil.jsonToStr(where) + '&order=updatedAt';
         NetUtil.get(url, function (response) {
             console.log(response);
             _this.setState({
@@ -126,22 +133,17 @@ class MyNote extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        // flex: 1,
         backgroundColor: '#f5f5f5'
-    },
-    line: {
-        height: 1,
-        width: Dimensions.get('window').width,
-        backgroundColor: '#dddddd'
     },
     listView: {
         margin: 0,
         padding: 0
     },
     listViewItem: {
-        width: Dimensions.get('window').width,
+        width: Dimensions.get('window').width-100,
         backgroundColor: 'white',
-        padding: 8
+        borderRadius: 10
     },
     noteDate: {
         fontSize: 12,

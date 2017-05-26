@@ -24,6 +24,7 @@ import LifeStyle from '../App';
 import Register from '../login/Register';
 import ResetPwd from '../login/ResetPwd';
 import TextButton from '../component/TextButton';
+import LoadingView from '../component/LoadingView';
 
 class Login extends Component {
     constructor(props) {
@@ -31,7 +32,8 @@ class Login extends Component {
         this.state = {
             username: '',
             password: '',
-            email: ''
+            email: '',
+            showLoading:false
         }
     }
 
@@ -93,12 +95,9 @@ class Login extends Component {
                         color={'#FFDE00'}
                         backgroundColor={'transparent'}/>
                 </View>
+                <LoadingView showLoading={this.state.showLoading}/>
             </View>
         )
-    }
-
-    componentWillReceiveProps(nextProps) {
-        // console.log('componentWillReceiveProps', nextProps);
     }
 
     shouldComponentUpdate() {
@@ -115,6 +114,9 @@ class Login extends Component {
         let username = this.state.username;
         let password = this.state.password;
         let url = Global.LOGIN + "username=" + username + "&password=" + password;
+        this.setState({
+            showLoading:true
+        });
         if (Util.isEmpty(username)) {
             Util.showToast('请输入用户名');
             return;
@@ -124,6 +126,9 @@ class Login extends Component {
             return;
         }
         NetUtil.get(url, function (res) {
+            _this.setState({
+                showLoading:false
+            });
             if (res.hasOwnProperty('code')){
                 Util.showToast(res.error);
             } else {
