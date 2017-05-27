@@ -33,7 +33,9 @@ class MyNote extends Component {
             dataSource: ds,
             load: false,
             title: '我的笔记',
-            color:['red', 'blue', 'yellow', 'pink', 'green', 'brown', 'purple']
+            color: ['red', 'blue', 'yellow', 'pink', 'green', 'brown', 'purple', 'brownamber', 'beige', 'chocolate', 'ivory', 'khaki'],
+            noteStart: 0,
+            noteEnd: 1
         };
     }
 
@@ -65,21 +67,30 @@ class MyNote extends Component {
         )
     }
 
-    renderNote(note) {
-        let randomColor = this.state.color[Math.round(Math.random()*7)];
-        console.log(randomColor);
+    renderNote(note, selectId, rowId) {
+        let randomColor = this.state.color[Math.round(Math.random() * 7)];
         return (
             <TouchableOpacity>
-                <View style={{width:Dimensions.get('window').width, flexDirection: 'row', marginLeft:10}}>
-                    <View style={{alignSelf:'center', width:80, alignItems:'center'}}>
-                        <View style={{width:1, backgroundColor:'#dddddd', maxHeight:33}}/>
-                        <View style={{height:30, width:30, backgroundColor:'red', borderRadius:15}}/>
-                        <View style={{width:1, maxHeight:33, backgroundColor:'#dddddd'}}/>
+                <View style={styles.listViewContainer}>
+                    <View style={styles.listViewLeft}>
+                        {
+                            this.state.noteStart == rowId ? (
+                                <View style={styles.lineTopTrans}/>) : (
+                                <View style={styles.lineTopDdd}/>)
+                        }
+                        <View style={[styles.listViewLeftView, {backgroundColor: randomColor,}]}>
+                            <Text style={styles.listViewLeftText}>{note.title.substring(0, 1)}</Text>
+                        </View>
+                        {
+                            this.state.noteEnd == rowId ? (
+                                <View style={styles.lineTopTrans}/>) : (
+                                <View style={styles.lineTopDdd}/>)
+                        }
                     </View>
                     <View style={styles.listViewItem}>
                         <Text style={styles.noteTitle}>{note.title}</Text>
-                        <Text style={styles.noteContent}>{note.content}</Text>
-                        <Text style={styles.noteDate}>{note.createdAt.substring(0, 10)}</Text>
+                        <Text numberOfLines={3} style={styles.noteContent}>{note.content}</Text>
+                        <Text style={styles.noteDate}>{note.updatedAt.substring(0, 10)}</Text>
                     </View>
                 </View>
             </TouchableOpacity>
@@ -106,7 +117,8 @@ class MyNote extends Component {
             console.log(response);
             _this.setState({
                 dataSource: _this.state.dataSource.cloneWithRows(response.results),
-                load: true
+                load: true,
+                noteEnd: parseInt(response.results.length) - 1
             });
             PullRefresh.onRefreshEnd();
         });
@@ -121,11 +133,12 @@ class MyNote extends Component {
         let params = {
             "author": username
         };
-        let url = Global.NOTES + JsonUtil.jsonToStr(params) + '&order=-updatedAt';
+        let url = Global.NOTES + JsonUtil.jsonToStr(params) + '&order=updatedAt';
         NetUtil.get(url, function (response) {
             _this.setState({
                 dataSource: _this.state.dataSource.cloneWithRows(response.results),
-                load: true
+                load: true,
+                noteEnd: parseInt(response.results.length) - 1
             });
         });
     };
@@ -133,17 +146,51 @@ class MyNote extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        // flex: 1,
+        flex: 1,
         backgroundColor: '#f5f5f5'
     },
     listView: {
         margin: 0,
         padding: 0
     },
+    listViewContainer: {
+        width: Dimensions.get('window').width,
+        flexDirection: 'row',
+        marginLeft: 10
+    },
+    listViewLeft: {
+        alignSelf: 'center',
+        width: 110,
+        alignItems: 'center'
+    },
+    listViewLeftView: {
+        height: 35,
+        width: 35,
+        borderRadius: 20,
+        padding: 5,
+        justifyContent: 'center'
+    },
+    listViewLeftText: {
+        color: 'black',
+        textAlign: 'center',
+        fontSize: 20
+    },
+    lineTopTrans:{
+        width: 1,
+        backgroundColor: 'transparent',
+        height: 40
+    },
+    lineTopDdd: {
+        width: 1,
+        backgroundColor: '#dddddd',
+        height: 40
+    },
+
     listViewItem: {
-        width: Dimensions.get('window').width-100,
+        width: Dimensions.get('window').width - 130,
         backgroundColor: 'white',
-        borderRadius: 10
+        borderRadius: 10,
+        marginTop: 10
     },
     noteDate: {
         fontSize: 12,
@@ -162,8 +209,8 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: '#666',
         margin: 2,
-        maxHeight: 46,
-        lineHeight: 14
+        height: 48,
+        lineHeight: 16
     },
     addNote: {
         backgroundColor: '#ffde00',

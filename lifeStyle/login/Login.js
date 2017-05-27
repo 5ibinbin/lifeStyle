@@ -33,7 +33,7 @@ class Login extends Component {
             username: '',
             password: '',
             email: '',
-            showLoading:false
+            showLoading: false
         }
     }
 
@@ -95,7 +95,8 @@ class Login extends Component {
                         color={'#FFDE00'}
                         backgroundColor={'transparent'}/>
                 </View>
-                <LoadingView showLoading={this.state.showLoading}/>
+                <LoadingView
+                    showLoading={this.state.showLoading}/>
             </View>
         )
     }
@@ -115,7 +116,7 @@ class Login extends Component {
         let password = this.state.password;
         let url = Global.LOGIN + "username=" + username + "&password=" + password;
         this.setState({
-            showLoading:true
+            showLoading: true
         });
         if (Util.isEmpty(username)) {
             Util.showToast('请输入用户名');
@@ -127,9 +128,9 @@ class Login extends Component {
         }
         NetUtil.get(url, function (res) {
             _this.setState({
-                showLoading:false
+                showLoading: false
             });
-            if (res.hasOwnProperty('code')){
+            if (res.hasOwnProperty('code')) {
                 Util.showToast(res.error);
             } else {
                 StorageUtil.save('username', res.username, function () {
@@ -138,7 +139,7 @@ class Login extends Component {
                 _this.props.navigator.push({
                     name: 'lifeStyle',
                     component: LifeStyle,
-                    params:{
+                    params: {
                         username: _this.state.username
                     }
                 });

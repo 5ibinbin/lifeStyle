@@ -94,7 +94,7 @@ class Life extends Component {
                     <View>
                         <View style={styles.listViewItem}>
                             <Text style={styles.noteTitle}>{note.title}</Text>
-                            <Text style={styles.noteContent}>{note.content}</Text>
+                            <Text numberOfLines={3} style={styles.noteContent}>{note.content}</Text>
                             <Text style={styles.noteDate}>{note.createdAt.substring(0, 10)}</Text>
                         </View>
                         <LongLine/>

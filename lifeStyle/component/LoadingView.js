@@ -40,9 +40,9 @@ class LoadingView extends Component {
     render() {
         const {showLoading, opacity, backgroundColor} = this.props;
         return (
-            <Modal onRequestClose={() => this._close()} visible={showLoading} transparent={false}>
+            <Modal onRequestClose={() => this._close()} visible={showLoading} transparent={true}>
                 <View style={[styles.loadingView, {
-                    opacity: opacity || 0.3,
+                    opacity: opacity || 0.4,
                     backgroundColor: backgroundColor || 'gray'}]}></View>
                 <View style={ styles.loadingImageView }>
                     <View style={ styles.loadingImage }>
