@@ -45,7 +45,7 @@ class Setting extends Component {
                 <TouchableOpacity onPress={()=> this._goMyNote()}>
                     <View style={styles.item}>
                         <Image style={styles.imageLeft} source={require('./img/note-list.png')}></Image>
-                        <Text style={styles.textMiddle}>{'我的笔记足记'}</Text>
+                        <Text style={styles.textMiddle}>{'我的笔记足迹'}</Text>
                         <Image style={styles.imageRight} source={require('./img/black-right.png')}></Image>
                     </View>
                 </TouchableOpacity>

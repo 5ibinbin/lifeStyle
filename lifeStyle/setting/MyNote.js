@@ -13,7 +13,8 @@ import {
     ListView,
     Dimensions,
     Image,
-    TouchableOpacity
+    TouchableOpacity,
+    TouchableHighlight
 } from 'react-native';
 import Header from "../component/Header";
 import LongLine from "../component/LongLine";
@@ -21,7 +22,7 @@ import Global from "../utils/Global";
 import NetUtil from "../utils/NetUtil";
 import JsonUtil from "../utils/JsonUtil";
 import StorageUtil from "../utils/StorageUtil";
-import Util from '../utils/StorageUtil';
+import Util from '../utils/Util';
 import PullRefreshScrollView from 'react-native-pullrefresh-scrollview';
 
 class MyNote extends Component {
@@ -33,7 +34,7 @@ class MyNote extends Component {
             dataSource: ds,
             load: false,
             title: '我的笔记',
-            color: ['red', 'blue', 'yellow', 'pink', 'green', 'brown', 'purple', 'brownamber', 'beige', 'chocolate', 'ivory', 'khaki'],
+            color: ['red', 'blue', 'yellow', 'pink', 'green', 'brown', 'purple', 'beige', 'chocolate', 'ivory', 'khaki'],
             noteStart: 0,
             noteEnd: 1
         };
@@ -70,8 +71,12 @@ class MyNote extends Component {
     renderNote(note, selectId, rowId) {
         let randomColor = this.state.color[Math.round(Math.random() * 7)];
         return (
-            <TouchableOpacity>
+            <TouchableHighlight>
                 <View style={styles.listViewContainer}>
+                    <View style={{alignSelf: 'center'}}>
+                        <Text style={{width:50, color:randomColor}}>{note.updatedAt.substring(0, 4)}</Text>
+                        <Text style={{width:50, color:randomColor}}>{note.updatedAt.substring(5, 10)}</Text>
+                    </View>
                     <View style={styles.listViewLeft}>
                         {
                             this.state.noteStart == rowId ? (
@@ -90,10 +95,10 @@ class MyNote extends Component {
                     <View style={styles.listViewItem}>
                         <Text style={styles.noteTitle}>{note.title}</Text>
                         <Text numberOfLines={3} style={styles.noteContent}>{note.content}</Text>
-                        <Text style={styles.noteDate}>{note.updatedAt.substring(0, 10)}</Text>
+                        <Text style={[styles.noteDate, {color:randomColor}]}>{new Date(note.updatedAt).toLocaleTimeString()}</Text>
                     </View>
                 </View>
-            </TouchableOpacity>
+            </TouchableHighlight>
         )
     }
 
@@ -160,7 +165,7 @@ const styles = StyleSheet.create({
     },
     listViewLeft: {
         alignSelf: 'center',
-        width: 110,
+        width: 60,
         alignItems: 'center'
     },
     listViewLeftView: {
@@ -175,7 +180,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 20
     },
-    lineTopTrans:{
+    lineTopTrans: {
         width: 1,
         backgroundColor: 'transparent',
         height: 40
@@ -185,16 +190,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#dddddd',
         height: 40
     },
-
     listViewItem: {
         width: Dimensions.get('window').width - 130,
         backgroundColor: 'white',
         borderRadius: 10,
-        marginTop: 10
+        marginTop: 10,
+        paddingLeft: 10
     },
     noteDate: {
         fontSize: 12,
-        color: '#ffde00',
         margin: 2
     },
     noteTitle: {
