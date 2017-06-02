@@ -144,7 +144,6 @@ class NotebookDetail extends Component {
                 noteArray: response.results
             });
         });
-        console.log(this.state.noteArray);
     };
 
     _goAddNotebook = () => {

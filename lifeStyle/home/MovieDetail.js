@@ -9,7 +9,8 @@ import {
     Text,
     Image,
     Dimensions,
-    TouchableOpacity
+    TouchableOpacity,
+    ScrollView
 } from 'react-native';
 import Header from '../component/Header';
 import NetUtil from '../utils/NetUtil';
@@ -21,7 +22,9 @@ class MovieDetail extends Component {
             id: '',
             title: '',
             image: '',
-            content: ''
+            content: '',
+            avatar: [],
+            director: []
         }
     }
 
@@ -41,13 +44,33 @@ class MovieDetail extends Component {
         if (movie_title === original_title) {
             movie_title = '';
         }
+        let _this = this;
+        console.log(this.state.avatar);
+        var images = [];
+        var director = [];
+        for (var i = 0; i < this.state.avatar.length; i++) {
+            images.push(
+                <View key={this.state.avatar[i].avatars.medium} style={styles.movie_detail_view}>
+                    <Image style={styles.movie_detail_view_img} source={{uri: this.state.avatar[i].avatars.medium}}></Image>
+                </View>
+            )
+        }
+
+        for (var i = 0; i < this.state.director.length; i++) {
+            director.push(
+                <View key={this.state.director[i].avatars.medium} style={styles.movie_detail_view}>
+                    <Image style={styles.movie_detail_view_img} source={{uri: this.state.director[i].avatars.medium}}></Image>
+                </View>
+            )
+        }
+
         return (
             <View style={styles.container}>
                 <Header
                     title={this.state.title}
                     backState={'true'}
                     onPress={() => this._goBack()}/>
-                <View>
+                <ScrollView>
                     <View style={[styles.movie_Detail_Bg, {justifyContent: 'center'}]}>
                         <Text style={styles.movie_fontSize}>{movie_title} {original_title}</Text>
                     </View>
@@ -56,10 +79,12 @@ class MovieDetail extends Component {
                             <Image source={{uri: movieImage.medium}} style={styles.movie_Detail_Img}></Image>
                         </View>
                         <View style={styles.movie_detail_col}>
-                            <Text style={styles.movieSummary}>{'导演：'}{this.getMovieCasts(1, movieContent.directors)}</Text>
+                            <Text
+                                style={styles.movieSummary}>{'导演：'}{this.getMovieCasts(1, movieContent.directors)}</Text>
                             <Text style={styles.movieSummary}>{'主演：'}{this.getMovieCasts(1, movieContent.casts)}</Text>
                             <Text style={styles.movieSummary}>{'类型：'}{this.getMovieCasts(2, movieContent.genres)}</Text>
-                            <Text style={styles.movieSummary}>{'制片国家/地区：'}{this.getMovieCasts(2, movieContent.countries)}</Text>
+                            <Text
+                                style={styles.movieSummary}>{'制片国家/地区：'}{this.getMovieCasts(2, movieContent.countries)}</Text>
                             <Text style={styles.movieSummary}>{'又名：'}{this.getMovieCasts(2, movieContent.aka)}</Text>
                             <Text style={styles.movieSummary}>{'年份：' + movieContent.year}</Text>
                         </View>
@@ -73,7 +98,23 @@ class MovieDetail extends Component {
                             <Text style={styles.movie_Detail_Intro}>&nbsp;&nbsp;{movieContent.summary}</Text>
                         </View>
                     </View>
-                </View>
+
+
+                    <View style={[styles.movie_Detail_Bg, {flexDirection:'column'}]}>
+                        <Text style={styles.movie_fontSize}>{'主演'}</Text>
+                        <View style={styles.movie_detail_view_item}>
+                            {images}
+                        </View>
+                    </View>
+
+                    <View style={[styles.movie_Detail_Bg, {flexDirection:'column'}]}>
+                        <Text style={styles.movie_fontSize}>{'导演'}</Text>
+                        <View style={styles.movie_detail_view_item}>
+                            {director}
+                        </View>
+                    </View>
+                </ScrollView>
+
             </View>
         )
     }
@@ -90,10 +131,12 @@ class MovieDetail extends Component {
         fetch(NetUtil.movieDetail + id)
             .then((response) => (response.json()))
             .then((responseData) => {
-                console.log(responseData);
+                // console.log(responseData.casts);
                 this.setState({
                     content: responseData,
-                    image: responseData.images
+                    image: responseData.images,
+                    avatar: responseData.casts,
+                    director: responseData.directors
                 })
             })
             .done();
@@ -123,7 +166,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#f5f5f5'
     },
     movie_Detail_row: {
-        flexDirection:'row'
+        flexDirection: 'row'
     },
     movie_detail_col: {
         flexDirection: 'column'
@@ -141,8 +184,8 @@ const styles = StyleSheet.create({
         height: 120,
         width: 90,
         marginRight: 6,
-        marginLeft:6,
-        marginTop:6
+        marginLeft: 6,
+        marginTop: 6
     },
     movie_fontSize: {
         fontSize: 16,
@@ -151,15 +194,15 @@ const styles = StyleSheet.create({
     movie_fontSize_14: {
         fontSize: 14,
         color: '#333',
-        margin:4
+        margin: 4
     },
     movie_Detail_Intro: {
         fontSize: 14,
         color: '#666',
-        marginLeft:12,
-        marginRight:12,
-        marginTop:4,
-        lineHeight:20
+        marginLeft: 12,
+        marginRight: 12,
+        marginTop: 4,
+        lineHeight: 20
     },
     movieSummary: {
         marginLeft: 4,
@@ -169,6 +212,24 @@ const styles = StyleSheet.create({
         color: '#666',
         flexWrap: 'nowrap',
         width: Dimensions.get('window').width - 136,
+    },
+    movie_detail_view_item:{
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        flexWrap:'wrap',
+        // alignItems: 'center',
+        flex:1
+    },
+    movie_detail_view:{
+        flexDirection: 'column',
+        // alignSelf: 'center',
+        // alignItems: 'center',
+        // flex:1
+    },
+    movie_detail_view_img: {
+        height: 120,
+        width: 90,
+        margin:2
     }
 });
 export default MovieDetail;

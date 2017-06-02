@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import Header from './component/Header';
 import MyNote from './setting/MyNote';
+import AboutMe from './setting/AboutMe';
 import LongLine from './component/LongLine';
 import TextButton from './component/TextButton';
 import Util from './utils/Util';
@@ -42,6 +43,7 @@ class Setting extends Component {
                 <Header
                     title={this.state.title}
                     backState={'false'}/>
+                <LongLine/>
                 <TouchableOpacity onPress={()=> this._goMyNote()}>
                     <View style={styles.item}>
                         <Image style={styles.imageLeft} source={require('./img/note-list.png')}></Image>
@@ -49,6 +51,15 @@ class Setting extends Component {
                         <Image style={styles.imageRight} source={require('./img/black-right.png')}></Image>
                     </View>
                 </TouchableOpacity>
+                <LongLine/>
+                <TouchableOpacity onPress={()=> this._goAboutMe()}>
+                    <View style={styles.item}>
+                        <Image style={styles.imageLeft} source={require('./img/about-me.png')}></Image>
+                        <Text style={styles.textMiddle}>{'关于我'}</Text>
+                        <Image style={styles.imageRight} source={require('./img/black-right.png')}></Image>
+                    </View>
+                </TouchableOpacity>
+                <LongLine/>
             </View>
         )
     }
@@ -59,6 +70,13 @@ class Setting extends Component {
             component: MyNote,
             params: {}
         });
+    };
+    _goAboutMe = () => {
+        this.props.navigator.push({
+            name: 'AboutMe',
+            component: AboutMe,
+            params:{}
+        })
     }
 }
 

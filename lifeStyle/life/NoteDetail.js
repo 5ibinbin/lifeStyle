@@ -37,7 +37,6 @@ class NoteDetail extends Component {
     }
 
     render() {
-        console.log(this.state.minHeight);
         return (
             <View>
                 <Header
@@ -83,8 +82,6 @@ class NoteDetail extends Component {
             "title":_this.state.noteTitle,
             "content":_this.state.noteContent
         };
-        console.log(url);
-        console.log(params);
         NetUtil.putJson(url, params, function (res) {
             console.log(res);
             if (res.hasOwnProperty('objectId')){

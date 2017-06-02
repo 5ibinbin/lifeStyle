@@ -17,12 +17,6 @@ AV.initialize('M401fErHUPYhDKmgp0wjqVRX-gzGzoHsz', 'Jqnvt1Lmt34vQh1JDRUpRAqq');
 
 
 export default class lifeStyle extends Component {
-    //第一次调用的时候，第一个参数route就是initialRoute
-    renderScene = (route, navigator) => {
-        let Component = route.component;
-        return <Component {...route.params} navigator={navigator}/>
-    };
-
     initialRoute = {
         name: 'login',
         component: Login,
@@ -30,6 +24,12 @@ export default class lifeStyle extends Component {
 
     configureScene = (route) => {
         return Navigator.SceneConfigs.FloatFromRight;
+    };
+
+    //第一次调用的时候，第一个参数route就是initialRoute
+    renderScene = (route, navigator) => {
+        let Component = route.component;
+        return <Component {...route.params} navigator={navigator}/>
     };
 
     render() {

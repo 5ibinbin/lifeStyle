@@ -17,7 +17,7 @@ class TextButton extends Component {
         onPress: PropTypes.func,
         color: PropTypes.string,
         backgroundColor:PropTypes.string,
-        fontSize: PropTypes.number
+        fontSize: PropTypes.number,
     };
 
     static defaultProps = {
