@@ -10,7 +10,7 @@ import {
     Image,
     TouchableOpacity
 } from 'react-native';
-import Header from './component/Header';
+import NavigationBar from './component/NavigationBar';
 import MyNote from './setting/MyNote';
 import AboutMe from './setting/AboutMe';
 import LongLine from './component/LongLine';
@@ -40,9 +40,9 @@ class Setting extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Header
+                <NavigationBar
                     title={this.state.title}
-                    backState={'false'}/>
+                    showLeftState ={false}/>
                 <LongLine/>
                 <TouchableOpacity onPress={()=> this._goMyNote()}>
                     <View style={styles.item}>

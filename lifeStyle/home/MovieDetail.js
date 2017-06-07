@@ -12,7 +12,7 @@ import {
     TouchableOpacity,
     ScrollView
 } from 'react-native';
-import Header from '../component/Header';
+import NavigationBar from '../component/NavigationBar';
 import NetUtil from '../utils/NetUtil';
 
 class MovieDetail extends Component {
@@ -66,9 +66,9 @@ class MovieDetail extends Component {
 
         return (
             <View style={styles.container}>
-                <Header
+                <NavigationBar
                     title={this.state.title}
-                    backState={'true'}
+                    showLeftState ={true}
                     onPress={() => this._goBack()}/>
                 <ScrollView>
                     <View style={[styles.movie_Detail_Bg, {justifyContent: 'center'}]}>

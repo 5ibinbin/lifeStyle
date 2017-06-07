@@ -10,7 +10,7 @@ import {
     TouchableOpacity,
     Dimensions,
 } from 'react-native';
-import Header from '../component/Header';
+import NavigationBar from '../component/NavigationBar';
 import LongLine from '../component/LongLine';
 import TextButton from '../component/TextButton';
 import Util from '../utils/Util';
@@ -41,10 +41,13 @@ class AddNotebook extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Header
+                <NavigationBar
                     title={this.state.title}
                     subTitle={this.state.subTitle}
-                    backState={'true'}
+                    showLeftState ={true}
+                    showRightState={true}
+                    showRightImage={false}
+                    rightItemTitle={'完成'}
                     onPress={() => this._goBack()}
                     onPressRight={() => this._completeNote()}/>
                 <View style={styles.notebookContent}>

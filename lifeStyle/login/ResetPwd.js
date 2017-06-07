@@ -11,11 +11,16 @@ import {
     TouchableOpacity
 } from 'react-native';
 import TextButton from '../component/TextButton';
+import NavigationBar from '../component/NavigationBar';
 
 class ResetPwd extends Component{
     render(){
         return(
             <View style={styles.container}>
+                <NavigationBar
+                    title={'忘记密码'}
+                    showLeftState ={true}
+                    onPress={() => this._goBack()}/>
                 <TextInput
                     style={styles.user_input}
                     placeholder={'请输入手机号'}

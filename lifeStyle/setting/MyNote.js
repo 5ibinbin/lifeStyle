@@ -16,7 +16,7 @@ import {
     TouchableOpacity,
     TouchableHighlight
 } from 'react-native';
-import Header from "../component/Header";
+import NavigationBar from "../component/NavigationBar";
 import LongLine from "../component/LongLine";
 import Global from "../utils/Global";
 import NetUtil from "../utils/NetUtil";
@@ -52,9 +52,9 @@ class MyNote extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Header
+                <NavigationBar
                     title={this.state.title}
-                    backState={'true'}
+                    showLeftState ={true}
                     onPress={() => this._goBack()}/>
                 <ListView
                     contentContainerStyle={styles.listView}

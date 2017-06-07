@@ -16,7 +16,7 @@ import Global from '../utils/Global';
 import NetUtil from '../utils/NetUtil';
 import JsonUtil from '../utils/JsonUtil';
 import Util from '../utils/Util';
-import Header from '../component/Header';
+import NavigationBar from '../component/NavigationBar';
 
 class Register extends Component {
 
@@ -37,9 +37,9 @@ class Register extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Header
-                    title={'首页'}
-                    backState ={'true'}
+                <NavigationBar
+                    title={'用户注册'}
+                    showLeftState ={true}
                     onPress={() => this._goBack()}/>
                 <Image source={require('../img/logo.png')} style={styles.image}/>
                 <TextInput
@@ -101,7 +101,6 @@ class Register extends Component {
         });
     };
     _goBack = () => {
-        console.log('back');
         const {navigator} = this.props;
         if (navigator) {
             navigator.pop();

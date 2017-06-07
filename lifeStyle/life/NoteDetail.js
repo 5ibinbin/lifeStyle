@@ -9,7 +9,7 @@ import {
     TextInput,
     ScrollView
 } from 'react-native';
-import Header from '../component/Header';
+import NavigationBar from '../component/NavigationBar';
 import NetUtil from '../utils/NetUtil';
 import Global from '../utils/Global';
 
@@ -39,11 +39,14 @@ class NoteDetail extends Component {
     render() {
         return (
             <View>
-                <Header
+                <NavigationBar
                     title={this.state.title}
-                    backState={'true'}
-                    onPress={() => this._goBack()}
                     subTitle={this.state.subTitle}
+                    showLeftState ={true}
+                    showRightState={true}
+                    showRightImage={false}
+                    rightItemTitle={'完成'}
+                    onPress={() => this._goBack()}
                     onPressRight={() => this._updateNote()}/>
                 <ScrollView>
                     <TextInput

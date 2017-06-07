@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 import StorageUtil from './utils/StorageUtil';
 import NetUtil from './utils/NetUtil';
-import Header from './component/Header';
+import NavigationBar from './component/NavigationBar';
 import MovieDetail from './home/MovieDetail';
 import PullRefreshScrollView from 'react-native-pullrefresh-scrollview';
 
@@ -41,9 +41,9 @@ class Home extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Header
+                <NavigationBar
                     title={this.state.title}
-                    backState={'false'}/>
+                    showLeftState ={false}/>
                 <ListView
                     style={styles.listView}
                     renderScrollComponent={(props) => <PullRefreshScrollView

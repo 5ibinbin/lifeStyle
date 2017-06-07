@@ -10,10 +10,13 @@ import {
     Switch,
     Dimensions,
     Image,
-    WebView
+    NetInfo,
+    AppState,
+    TouchableOpacity,
 } from 'react-native';
-import Header from './component/Header';
+import NavigationBar from './component/NavigationBar';
 import ViewPager from 'react-native-viewpager';
+import ActionSheet from 'react-native-actionsheet-api';
 
 const BANNER_IMG = [require('./img/bannerOne.png'),
     require('./img/bannerTwo.png'),
@@ -27,19 +30,29 @@ class Activity extends Component {
             title: '活动',
             switchIsOn: false,
             viewPagerDataSource: dataSource.cloneWithPages(BANNER_IMG),
+            isConnect: false,
+            connectionInfo: null,
+            currentAppState: AppState.currentState
         }
     }
 
     componentDidMount() {
-
+        NetInfo.isConnected.addEventListener(
+            'change',
+            this._handleConnectivityChange
+        );
+        AppState.addEventListener(
+            'change',
+            this._handleAppStateChange.bind(this)
+        )
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <Header
+                <NavigationBar
                     title={this.state.title}
-                    backState={'false'}/>
+                    showLeftState ={false}/>
                 <View style={styles.viewPagerStyle}>
                     <ViewPager
                         dataSource={this.state.viewPagerDataSource}
@@ -52,12 +65,22 @@ class Activity extends Component {
                         onValueChange={(value) => this._onValueChange(value)}
                         value={this.state.switchIsOn}/>
                 </View>
+                <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+                    <Text>{this.state.connectionInfo}</Text>
+                </View>
+                <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+                    <Text>{this.state.currentAppState}</Text>
+                </View>
+                <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+                    <TouchableOpacity onPress={() => this._actionSheet()}>
+                        <Text>{'ActionSheet'}</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         )
     }
 
     _renderPage(data, pageID) {
-        console.log(pageID);
         return (
             <Image
                 source={data}
@@ -70,6 +93,52 @@ class Activity extends Component {
             switchIsOn: value
         })
     };
+
+    _handleConnectivityChange = (isConnected) => {
+        //检测网络是否连接
+        NetInfo.isConnected.fetch().done(
+            (isConnected) => {
+                this.setState({isConnect: isConnected});
+                console.log(this.state.isConnect)
+            }
+        );
+        //检测网络连接信息
+        NetInfo.fetch().done(
+            (connectionInfo) => {
+                this.setState({connectionInfo: connectionInfo});
+                console.log(this.state.connectionInfo);
+            }
+        );
+    };
+
+    _handleAppStateChange = (appState) => {
+        console.log(appState);
+        this.setState({
+            currentAppState: appState
+        });
+    };
+
+    _actionSheet = () => {
+        ActionSheet.showActionSheetWithOptions({
+                title: '请选择您最喜欢的明星',
+                options: ['科比布莱恩特', '勒布朗詹姆斯', '史蒂芬库里', '凯文杜兰特', '都不喜欢'],
+                cancelButtonIndex: 4,
+                // destructiveButtonIndex: 4,
+                tintColor: 'black',
+            },
+            (buttonIndex) => {
+                console.log(buttonIndex);
+            }
+        );
+    };
+
+    _leftItemAction = ()=> {
+        console.log('left');
+    };
+
+    _rightItemAction = ()=> {
+        console.log('right');
+    }
 }
 
 const styles = StyleSheet.create({

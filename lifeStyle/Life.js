@@ -12,7 +12,7 @@ import {
     Image,
     TouchableOpacity
 } from 'react-native';
-import Header from "./component/Header";
+import NavigationBar from "./component/NavigationBar";
 import LongLine from "./component/LongLine";
 import Global from "./utils/Global";
 import NetUtil from "./utils/NetUtil";
@@ -56,9 +56,9 @@ class Life extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Header
+                <NavigationBar
                     title={this.state.title}
-                    backState={'false'}/>
+                    showLeftState ={false}/>
                 <Search
                     textValue={this.state.searchContent}
                     onPress={() => this.searchNote()}/>

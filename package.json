@@ -12,6 +12,7 @@
     "moment": "^2.18.1",
     "react": "16.0.0-alpha.6",
     "react-native": "0.43.2",
+    "react-native-actionsheet-api": "^1.0.3",
     "react-native-pullrefresh-scrollview": "^1.1.1",
     "react-native-swipeout": "^2.1.1",
     "react-native-tab-navigator": "^0.3.3",

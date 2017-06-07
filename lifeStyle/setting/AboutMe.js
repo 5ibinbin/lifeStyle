@@ -9,7 +9,7 @@ import {
     Dimensions,
     WebView
 } from 'react-native';
-import Header from '../component/Header';
+import NavigationBar from '../component/NavigationBar';
 import ViewPager from 'react-native-viewpager';
 
 class AboutMe extends Component {
@@ -28,9 +28,9 @@ class AboutMe extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Header
+                <NavigationBar
                     title={this.state.title}
-                    backState={'true'}
+                    showLeftState ={true}
                     onPress={() => this._goBack()}/>
                 <View style={styles.webViewStyle}>
                     <WebView
