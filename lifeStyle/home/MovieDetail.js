@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import NavigationBar from '../component/NavigationBar';
 import NetUtil from '../utils/NetUtil';
+import Util from '../utils/Util';
 
 class MovieDetail extends Component {
     constructor(props) {
@@ -45,30 +46,33 @@ class MovieDetail extends Component {
             movie_title = '';
         }
         let _this = this;
-        console.log(this.state.avatar);
+
         var images = [];
         var director = [];
-        for (var i = 0; i < this.state.avatar.length; i++) {
-            images.push(
-                <View key={this.state.avatar[i].avatars.medium} style={styles.movie_detail_view}>
-                    <Image style={styles.movie_detail_view_img} source={{uri: this.state.avatar[i].avatars.medium}}></Image>
-                </View>
-            )
-        }
-
-        for (var i = 0; i < this.state.director.length; i++) {
-            director.push(
-                <View key={this.state.director[i].avatars.medium} style={styles.movie_detail_view}>
-                    <Image style={styles.movie_detail_view_img} source={{uri: this.state.director[i].avatars.medium}}></Image>
-                </View>
-            )
+        if (!Util.isEmpty(this.state.avatar) && !Util.isEmpty(this.state.director)) {
+            for (var i = 0; i < this.state.avatar.length; i++) {
+                images.push(
+                    <View key={this.state.avatar[i].avatars.medium} style={styles.movie_detail_view}>
+                        <Image style={styles.movie_detail_view_img}
+                               source={{uri: this.state.avatar[i].avatars.medium}}></Image>
+                    </View>
+                )
+            }
+            for (var i = 0; i < this.state.director.length; i++) {
+                director.push(
+                    <View key={this.state.director[i].avatars.medium} style={styles.movie_detail_view}>
+                        <Image style={styles.movie_detail_view_img}
+                               source={{uri: this.state.director[i].avatars.medium}}></Image>
+                    </View>
+                )
+            }
         }
 
         return (
             <View style={styles.container}>
                 <NavigationBar
                     title={this.state.title}
-                    showLeftState ={true}
+                    showLeftState={true}
                     onPress={() => this._goBack()}/>
                 <ScrollView>
                     <View style={[styles.movie_Detail_Bg, {justifyContent: 'center'}]}>
@@ -76,7 +80,7 @@ class MovieDetail extends Component {
                     </View>
                     <View style={styles.movie_Detail_Bg}>
                         <View>
-                            <Image source={{uri: movieImage.medium}} style={styles.movie_Detail_Img}></Image>
+                            <Image source={{uri: movieImage.medium }} style={styles.movie_Detail_Img}></Image>
                         </View>
                         <View style={styles.movie_detail_col}>
                             <Text
@@ -100,14 +104,14 @@ class MovieDetail extends Component {
                     </View>
 
 
-                    <View style={[styles.movie_Detail_Bg, {flexDirection:'column'}]}>
+                    <View style={[styles.movie_Detail_Bg, {flexDirection: 'column'}]}>
                         <Text style={styles.movie_fontSize}>{'主演'}</Text>
                         <View style={styles.movie_detail_view_item}>
                             {images}
                         </View>
                     </View>
 
-                    <View style={[styles.movie_Detail_Bg, {flexDirection:'column'}]}>
+                    <View style={[styles.movie_Detail_Bg, {flexDirection: 'column'}]}>
                         <Text style={styles.movie_fontSize}>{'导演'}</Text>
                         <View style={styles.movie_detail_view_item}>
                             {director}
@@ -131,7 +135,7 @@ class MovieDetail extends Component {
         fetch(NetUtil.movieDetail + id)
             .then((response) => (response.json()))
             .then((responseData) => {
-                // console.log(responseData.casts);
+                console.log(responseData.images);
                 this.setState({
                     content: responseData,
                     image: responseData.images,
@@ -213,14 +217,14 @@ const styles = StyleSheet.create({
         flexWrap: 'nowrap',
         width: Dimensions.get('window').width - 136,
     },
-    movie_detail_view_item:{
+    movie_detail_view_item: {
         flexDirection: 'row',
         justifyContent: 'flex-start',
-        flexWrap:'wrap',
+        flexWrap: 'wrap',
         // alignItems: 'center',
-        flex:1
+        flex: 1
     },
-    movie_detail_view:{
+    movie_detail_view: {
         flexDirection: 'column',
         // alignSelf: 'center',
         // alignItems: 'center',
@@ -229,7 +233,7 @@ const styles = StyleSheet.create({
     movie_detail_view_img: {
         height: 120,
         width: 90,
-        margin:2
+        margin: 2
     }
 });
 export default MovieDetail;

@@ -17,6 +17,8 @@ import {
 import NavigationBar from './component/NavigationBar';
 import ViewPager from 'react-native-viewpager';
 import ActionSheet from 'react-native-actionsheet-api';
+import ActionButton from 'react-native-action-button';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const BANNER_IMG = [require('./img/bannerOne.png'),
     require('./img/bannerTwo.png'),
@@ -52,7 +54,7 @@ class Activity extends Component {
             <View style={styles.container}>
                 <NavigationBar
                     title={this.state.title}
-                    showLeftState ={false}/>
+                    showLeftState={false}/>
                 <View style={styles.viewPagerStyle}>
                     <ViewPager
                         dataSource={this.state.viewPagerDataSource}
@@ -76,6 +78,17 @@ class Activity extends Component {
                         <Text>{'ActionSheet'}</Text>
                     </TouchableOpacity>
                 </View>
+                <ActionButton buttonColor="rgba(231,76,60,1)">
+                    <ActionButton.Item buttonColor='#9b59b6' title="New Task" onPress={() => console.log("notes tapped!")}>
+                        <Icon name="ios-person" style={styles.actionButtonIcon} />
+                    </ActionButton.Item>
+                    <ActionButton.Item buttonColor='#3498db' title="Notifications" onPress={() => {}}>
+                        <Icon name="ios-person" style={styles.actionButtonIcon} />
+                    </ActionButton.Item>
+                    <ActionButton.Item buttonColor='#1abc9c' title="All Tasks" onPress={() => {}}>
+                        <Icon name="ios-person" style={styles.actionButtonIcon} />
+                    </ActionButton.Item>
+                </ActionButton>
             </View>
         )
     }
@@ -132,11 +145,11 @@ class Activity extends Component {
         );
     };
 
-    _leftItemAction = ()=> {
+    _leftItemAction = () => {
         console.log('left');
     };
 
-    _rightItemAction = ()=> {
+    _rightItemAction = () => {
         console.log('right');
     }
 }
@@ -162,6 +175,11 @@ const styles = StyleSheet.create({
     page: {
         height: 220,
         width: Dimensions.get('window').width,
+    },
+    actionButtonIcon: {
+        fontSize: 20,
+        height: 22,
+        color: 'white',
     },
 });
 

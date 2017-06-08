@@ -119,6 +119,7 @@ class Home extends Component {
                     dataSource: this.state.dataSource.cloneWithRows(responseData.subjects),
                     load: true
                 });
+                console.log(responseData.subjects);
                 // PullRefresh.onLoadMoreEnd();
             })
             .done();
@@ -138,7 +139,7 @@ class Home extends Component {
                     movieId: responseData.id,
                     dataSource: this.state.dataSource.cloneWithRows(responseData.subjects),
                     load: true
-                })
+                });
             })
             .done();
     }
@@ -163,6 +164,7 @@ class Home extends Component {
      * 跳转到详情页
      * */
     goMovieDetail = (movie) => {
+        console.log(movie);
         this.props.navigator.push({
             name: 'MovieDetail',
             component: MovieDetail,
