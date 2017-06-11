@@ -19,6 +19,7 @@ import ViewPager from 'react-native-viewpager';
 import ActionSheet from 'react-native-actionsheet-api';
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Popover from 'react-native-popover';
 
 const BANNER_IMG = [require('./img/bannerOne.png'),
     require('./img/bannerTwo.png'),
@@ -34,7 +35,9 @@ class Activity extends Component {
             viewPagerDataSource: dataSource.cloneWithPages(BANNER_IMG),
             isConnect: false,
             connectionInfo: null,
-            currentAppState: AppState.currentState
+            currentAppState: AppState.currentState,
+            isVisible: false,
+            buttonRect: {},
         }
     }
 
@@ -47,6 +50,19 @@ class Activity extends Component {
             'change',
             this._handleAppStateChange.bind(this)
         )
+    }
+
+    showPopover() {
+        this.refs.button.measure((ox, oy, width, height, px, py) => {
+            this.setState({
+                isVisible: true,
+                buttonRect: {x: px, y: py, width: width, height: height}
+            });
+        });
+    }
+
+    closePopover() {
+        this.setState({isVisible: false});
     }
 
     render() {
@@ -89,6 +105,17 @@ class Activity extends Component {
                         <Icon name="ios-person" style={styles.actionButtonIcon} />
                     </ActionButton.Item>
                 </ActionButton>
+                <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+                    <TouchableOpacity ref="button" onPress={this.showPopover}>
+                        <Text>{'测试popover位置'}</Text>
+                    </TouchableOpacity>
+                </View>
+                <Popover
+                    isVisible={this.state.isVisible}
+                    fromRect={this.state.buttonRect}
+                    onClose={this.closePopover}>
+                    <Text>I'm the content of this popover!</Text>
+                </Popover>
             </View>
         )
     }

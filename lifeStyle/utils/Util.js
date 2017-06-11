@@ -6,7 +6,6 @@ import React, {Component} from 'react';
 import Toast from 'react-native-root-toast';
 
 class Util extends Component {
-
     /*
      * 判断字符
      * */

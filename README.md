@@ -9,3 +9,6 @@
 - [pullRefreshScrollView](https://github.com/lvming6816077/react-native-pullRefreshScrollView)
 - [ActionSheet](https://github.com/beefe/react-native-actionsheet)
 - [ViewPager](https://github.com/race604/react-native-viewpager)
+- [react-native-easy-toast](https://github.com/crazycodeboy/react-native-easy-toast)
+- [react-native-popover](https://github.com/jeanregisser/react-native-popover)
+- [react-native-blur](https://github.com/react-native-community/react-native-blur)
