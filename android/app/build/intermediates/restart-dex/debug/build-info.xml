@@ -5,33 +5,32 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="217891478953901"
+    timestamp="244500088976850"
     token="1040607150810843745"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="1513" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="398" />
+        duration="0" />
     <task
         name="verifier"
-        duration="56" />
-
-    <artifact
-        location="/Users/Cral-Gates/RNProject/lifeStyle/android/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
+        duration="0" />
 
     <build
-        timestamp="217891478953901"
+        timestamp="244276039667131"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/Cral-Gates/RNProject/lifeStyle/android/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
+    <build
+        timestamp="244500088976850"
+        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

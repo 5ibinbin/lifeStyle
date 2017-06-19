@@ -9,7 +9,8 @@ import {
     Text,
     Image,
     TouchableOpacity,
-    Platform
+    Platform,
+    StatusBar
 } from 'react-native';
 const STATUS_BAR_HEIGHT = 20;
 const NAV_BAR_HEIGHT = 44;
@@ -69,6 +70,15 @@ class NavigationBar extends Component {
                     height: showStateBar ? NAV_BAR_HEIGHT + STATUS_BAR_HEIGHT : NAV_BAR_HEIGHT,
                     paddingTop: showStateBar ? STATUS_BAR_HEIGHT : 0
                 }]}>
+                {
+                    showStateBar ? (
+                        <StatusBar
+                            backgroundColor='#ffde00'
+                            animated={true}
+                            translucent={true}
+                            hidden={true}/>
+                    ) : null
+                }
                 <View>
                     {
                         leftItemState
@@ -90,8 +100,8 @@ class NavigationBar extends Component {
                         {
                             rightItemState
                                 ? (showRightImage ?
-                                    <Image style={styles.nav_img} source={this.props.rightImageSource}></Image>
-                                    : <Text style={styles.nav_text}>{this.props.rightItemTitle}</Text>)
+                                <Image style={styles.nav_img} source={this.props.rightImageSource}></Image>
+                                : <Text style={styles.nav_text}>{this.props.rightItemTitle}</Text>)
                                 : null
                         }
                     </TouchableOpacity>
