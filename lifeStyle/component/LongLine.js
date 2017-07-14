@@ -1,9 +1,6 @@
 /**
  * Created by Cral-Gates on 2017/5/20.
  */
-/**
- * Created by Cral-Gates on 2017/5/5.
- */
 'use strict';
 import React, {Component} from 'react';
 import {

@@ -98,7 +98,7 @@ class NoteDetail extends Component {
     onChange = (event) => {
         this.setState({
             noteContent: event.nativeEvent.text,
-            height: event.nativeEvent.contentSize.height
+            // height: event.nativeEvent.contentSize.height
         });
     };
 
