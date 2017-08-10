@@ -49,10 +49,10 @@ class LoadingView extends Component {
                         {
                             this.props.loadingViewClick ?
                                 <TouchableOpacity onPress={ this.props.loadingViewClick }>
-                                    <Image style={ styles.loadingImage } source={require('../img/addimg.png')}/>
+                                    <Image style={ styles.loadingImage } source={require('../img/loading.gif')}/>
                                 </TouchableOpacity>
                                 :
-                                <Image style={ styles.loadingImage } source={require('../img/addimg.png') }/>
+                                <Image style={ styles.loadingImage } source={require('../img/loading.gif') }/>
                         }
                     </View>
                 </View>
@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
         position: 'absolute'
     },
     loadingImage: {
-        width: 80,
-        height: 80,
+        width: 40,
+        height: 40,
     },
     loadingImageView: {
         position: 'absolute',
@@ -79,11 +79,5 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     }
 });
-// LoadingView.propTypes = {
-//     loadingViewClick: React.PropTypes.func,
-//     showLoading: React.PropTypes.bool.isRequired,
-//     opacity: React.PropTypes.number,
-//     backgroundColor: React.PropTypes.string
-// };
 export default LoadingView
 

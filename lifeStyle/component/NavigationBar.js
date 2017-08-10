@@ -96,7 +96,7 @@ class NavigationBar extends Component {
                     <Text style={styles.textStyle}>{this.props.title}</Text>
                 </View>
                 <View style={styles.rightItem}>
-                    < TouchableOpacity onPress={this.props.onPressRight}>
+                    <TouchableOpacity onPress={this.props.onPressRight}>
                         {
                             rightItemState
                                 ? (showRightImage ?

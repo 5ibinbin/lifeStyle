@@ -59,9 +59,9 @@ class Life extends Component {
                 <NavigationBar
                     title={this.state.title}
                     showLeftState ={false}/>
-                <Search
-                    textValue={this.state.searchContent}
-                    onPress={() => this.searchNote()}/>
+                {/*<Search*/}
+                    {/*textValue={this.state.searchContent}*/}
+                    {/*onPress={() => this.searchNote()}/>*/}
                 <View style={styles.line}/>
                 <ListView
                     contentContainerStyle={styles.listView}
@@ -72,8 +72,8 @@ class Life extends Component {
                     renderRow={this.renderNote.bind(this)}
                     enableEmptySections={true}/>
 
-                <TouchableOpacity onPress={() => this.goAddNote()}>
-                    <View style={styles.addNote}>
+                <TouchableOpacity style={styles.addNote} onPress={() => this.goAddNote()}>
+                    <View>
                         <Image style={styles.addImg} source={require('./img/addimg.png')}/>
                     </View>
                 </TouchableOpacity>

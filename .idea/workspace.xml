@@ -2,8 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfd7cc41-5fc8-4666-85bf-bae171f9d1b3" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lifeStyle/img/loading.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/android/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/android/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/android/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/android/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/android/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/app/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/android/app/build/intermediates/res/resources-debug-androidTest.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/lifeStyle.xcodeproj/project.xcworkspace/xcuserdata/Cral-Gates.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/ios/lifeStyle.xcodeproj/project.xcworkspace/xcuserdata/Cral-Gates.xcuserdatad/UserInterfaceState.xcuserstate" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/.idea/misc.xml" afterPath="$PROJECT_DIR$/android/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/.idea/workspace.xml" afterPath="$PROJECT_DIR$/android/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/app/app.iml" afterPath="$PROJECT_DIR$/android/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/app/build.gradle" afterPath="$PROJECT_DIR$/android/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/gradle.properties" afterPath="$PROJECT_DIR$/android/gradle.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lifeStyle/Life.js" afterPath="$PROJECT_DIR$/lifeStyle/Life.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lifeStyle/component/LoadingView.js" afterPath="$PROJECT_DIR$/lifeStyle/component/LoadingView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lifeStyle/component/NavigationBar.js" afterPath="$PROJECT_DIR$/lifeStyle/component/NavigationBar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lifeStyle/login/Login.js" afterPath="$PROJECT_DIR$/lifeStyle/login/Login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/react-native-vector-icons/android/react-native-vector-icons.iml" afterPath="$PROJECT_DIR$/node_modules/react-native-vector-icons/android/react-native-vector-icons.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,102 +34,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Login.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lifeStyle/login/Login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2475">
-              <caret line="187" column="19" lean-forward="false" selection-start-line="187" selection-start-column="19" selection-end-line="187" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NavigationBar.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lifeStyle/component/NavigationBar.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1080">
-              <caret line="81" column="22" lean-forward="false" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
-              <folding>
-                <element signature="e#60#110#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MovieDetail.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lifeStyle/home/MovieDetail.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1594">
-              <caret line="132" column="22" lean-forward="false" selection-start-line="132" selection-start-column="22" selection-end-line="132" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NetUtil.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lifeStyle/utils/NetUtil.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="68" lean-forward="false" selection-start-line="10" selection-start-column="68" selection-end-line="10" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JsonUtil.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lifeStyle/utils/JsonUtil.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="23" lean-forward="false" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StorageUtil.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lifeStyle/utils/StorageUtil.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="25" column="5" lean-forward="false" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Util.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lifeStyle/utils/Util.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1305">
-              <caret line="88" column="20" lean-forward="false" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lifeStyle/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="48" lean-forward="false" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Home.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lifeStyle/Home.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2595">
-              <caret line="190" column="24" lean-forward="false" selection-start-line="190" selection-start-column="24" selection-end-line="190" selection-end-column="24" />
-              <folding>
-                <element signature="e#48#87#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -141,32 +63,32 @@
         <option value="$PROJECT_DIR$/lifeStyle/component/Search.js" />
         <option value="$PROJECT_DIR$/lifeStyle/utils/NetUtil.js" />
         <option value="$PROJECT_DIR$/lifeStyle/utils/Global.js" />
-        <option value="$PROJECT_DIR$/lifeStyle/component/LoadingView.js" />
         <option value="$PROJECT_DIR$/lifeStyle/component/TextButton.js" />
         <option value="$PROJECT_DIR$/index.ios.js" />
         <option value="$PROJECT_DIR$/lifeStyle/platformComponent/Switch.ios.js" />
         <option value="$PROJECT_DIR$/lifeStyle/platformComponent/Switch.android.js" />
         <option value="$PROJECT_DIR$/lifeStyle/platformComponent/ViewPager.android.js" />
         <option value="$PROJECT_DIR$/ios/lifeStyle/Info.plist" />
-        <option value="$PROJECT_DIR$/lifeStyle/login/Login.js" />
         <option value="$PROJECT_DIR$/lifeStyle/component/Header.js" />
         <option value="$PROJECT_DIR$/lifeStyle/login/ResetPwd.js" />
         <option value="$PROJECT_DIR$/lifeStyle/setting/AboutMe.js" />
         <option value="$PROJECT_DIR$/lifeStyle/setting/MyNote.js" />
-        <option value="$PROJECT_DIR$/lifeStyle/Life.js" />
         <option value="$PROJECT_DIR$/lifeStyle/Setting.js" />
-        <option value="$PROJECT_DIR$/lifeStyle/login/Register.js" />
         <option value="$PROJECT_DIR$/lifeStyle/life/AddNote.js" />
         <option value="$PROJECT_DIR$/lifeStyle/life/AddNotebook.js" />
         <option value="$PROJECT_DIR$/lifeStyle/life/NotebookDetail.js" />
-        <option value="$PROJECT_DIR$/lifeStyle/Home.js" />
         <option value="$PROJECT_DIR$/lifeStyle/home/MovieDetail.js" />
         <option value="$PROJECT_DIR$/lifeStyle/utils/Util.js" />
         <option value="$PROJECT_DIR$/lifeStyle/Activity.js" />
-        <option value="$PROJECT_DIR$/lifeStyle/component/NavigationBar.js" />
         <option value="$PROJECT_DIR$/lifeStyle/life/NoteDetail.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/lifeStyle/component/LongLine.js" />
+        <option value="$PROJECT_DIR$/lifeStyle/component/LoadingView.js" />
+        <option value="$PROJECT_DIR$/lifeStyle/login/Register.js" />
+        <option value="$PROJECT_DIR$/lifeStyle/Home.js" />
+        <option value="$PROJECT_DIR$/lifeStyle/component/NavigationBar.js" />
+        <option value="$PROJECT_DIR$/lifeStyle/login/Login.js" />
+        <option value="$PROJECT_DIR$/lifeStyle/Life.js" />
       </list>
     </option>
   </component>
@@ -244,7 +166,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
+              <option name="myItemId" value="login" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -455,12 +377,13 @@
       <workItem from="1499991029122" duration="1336000" />
       <workItem from="1500110321574" duration="1532000" />
       <workItem from="1500250944445" duration="1342000" />
-      <workItem from="1500338233922" duration="560000" />
+      <workItem from="1500338233922" duration="699000" />
+      <workItem from="1502268310106" duration="6581000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="217279000" />
+    <option name="totallyTimeSpent" value="223999000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -468,13 +391,13 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2192216" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2780822" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2780822" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -595,13 +518,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lifeStyle/login/ResetPwd.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="21" column="41" lean-forward="false" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lifeStyle/life/AddNotebook.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -646,13 +562,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lifeStyle/component/LongLine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lifeStyle/component/Search.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1215">
@@ -664,20 +573,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="23" column="23" lean-forward="false" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lifeStyle/component/LoadingView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="21" column="23" lean-forward="false" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lifeStyle/login/Register.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="20" column="34" lean-forward="false" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -705,13 +600,6 @@
     <entry file="file://$PROJECT_DIR$/lifeStyle/img/bannerFour.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lifeStyle/Life.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="50" column="32" lean-forward="true" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lifeStyle/Activity.js">
@@ -757,16 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lifeStyle/Home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2595">
-          <caret line="190" column="24" lean-forward="false" selection-start-line="190" selection-start-column="24" selection-end-line="190" selection-end-column="24" />
-          <folding>
-            <element signature="e#48#87#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lifeStyle/utils/NetUtil.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -799,28 +677,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lifeStyle/login/Login.js">
+    <entry file="file://$PROJECT_DIR$/lifeStyle/home/MovieDetail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2475">
-          <caret line="187" column="19" lean-forward="false" selection-start-line="187" selection-start-column="19" selection-end-line="187" selection-end-column="19" />
+        <state relative-caret-position="469">
+          <caret line="132" column="22" lean-forward="false" selection-start-line="132" selection-start-column="22" selection-end-line="132" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifeStyle/login/Register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifeStyle/login/ResetPwd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="21" column="41" lean-forward="false" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifeStyle/Home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="45" column="44" lean-forward="false" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
+          <folding>
+            <element signature="e#48#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifeStyle/component/LoadingView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="670">
+          <caret line="67" column="28" lean-forward="false" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifeStyle/component/LongLine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lifeStyle/component/NavigationBar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="81" column="22" lean-forward="false" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
+        <state relative-caret-position="349">
+          <caret line="111" column="1" lean-forward="false" selection-start-line="111" selection-start-column="1" selection-end-line="111" selection-end-column="1" />
           <folding>
             <element signature="e#60#110#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lifeStyle/home/MovieDetail.js">
+    <entry file="file://$PROJECT_DIR$/lifeStyle/login/Login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1594">
-          <caret line="132" column="22" lean-forward="false" selection-start-line="132" selection-start-column="22" selection-end-line="132" selection-end-column="22" />
+        <state relative-caret-position="301">
+          <caret line="204" column="20" lean-forward="false" selection-start-line="204" selection-start-column="20" selection-end-line="204" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifeStyle/Life.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1915">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding />
         </state>
       </provider>

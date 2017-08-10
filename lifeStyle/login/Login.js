@@ -38,18 +38,18 @@ class Login extends Component {
     }
 
     componentWillMount() {
-        this.setState({
-            name: 'zhang'
-        });
-        console.log('componentWillMount');
+        console.log('login componentWillMount');
     }
 
     componentDidMount() {
-        console.log('componentDidMount');
+        this.setState({
+            name: 'zhang'
+        });
+        console.log('login componentDidMount');
     }
 
     render() {
-        console.log('render' + this.state.name);
+        console.log(this.state.name);
         return (
             <View style={styles.container}>
                 <Image source={require('../img/logo.png')} style={styles.image}/>
@@ -102,12 +102,20 @@ class Login extends Component {
     }
 
     shouldComponentUpdate() {
-        console.log('shouldComponentUpdate');
+        console.log('login shouldComponentUpdate');
         return true;
     }
 
+    componentWillUpdate() {
+        console.log('login componentWillUpdate');
+    }
+
+    componentWillReceiveProps(nextProps, nextState) {
+        console.log('login componentWillReceiveProps')
+    }
+
     componentDidUpdate() {
-        console.log('componentDidUpdate');
+        console.log('login componentDidUpdate');
     }
 
     _login = () => {
@@ -115,9 +123,6 @@ class Login extends Component {
         let username = this.state.username;
         let password = this.state.password;
         let url = Global.LOGIN + "username=" + username + "&password=" + password;
-        this.setState({
-            showLoading: true
-        });
         if (Util.isEmpty(username)) {
             Util.showToast('请输入用户名');
             return;
@@ -126,6 +131,9 @@ class Login extends Component {
             Util.showToast('请输入密码');
             return;
         }
+        this.setState({
+            showLoading: true
+        });
         NetUtil.get(url, function (res) {
             _this.setState({
                 showLoading: false
@@ -186,6 +194,7 @@ const styles = StyleSheet.create({
         marginRight: 20,
         borderRadius: 5,
         height: 35,
+        fontSize: 15
     },
     pwd_input: {
         backgroundColor: '#fff',
@@ -193,6 +202,7 @@ const styles = StyleSheet.create({
         marginRight: 20,
         borderRadius: 5,
         height: 35,
+        fontSize: 15
     },
     commit: {
         marginTop: 20,
